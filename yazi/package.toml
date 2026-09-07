@@ -1,0 +1,9 @@
+[[plugin.deps]]
+use = "wylie102/duckdb"
+rev = "3f8c863"
+hash = "87b9233a74325e95011670ed20bbd0d4"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "54ab389"
+hash = "67f2240fd9c98f21714527a24cd672f8"

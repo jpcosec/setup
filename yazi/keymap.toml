@@ -1,0 +1,15 @@
+[mgr]
+prepend_keymap = [
+  { on = "q", run = "quit", desc = "Quit and cd to Yazi cwd" },
+  { on = "Q", run = "quit --no-cwd-file", desc = "Quit without changing cwd" },
+  { on = [ "y", "p" ], run = "copy path", desc = "Copy file path" },
+  { on = [ "y", "d" ], run = "copy dirname", desc = "Copy parent directory path" },
+  { on = [ "y", "f" ], run = "copy filename", desc = "Copy filename" },
+  { on = [ "y", "n" ], run = "copy name_without_ext", desc = "Copy filename without extension" },
+  { on = [ "y", "c" ], run = "shell --confirm 'xclip -selection clipboard < \"$0\"'", desc = "Copy file contents to clipboard" },
+  { on = "H", run = "plugin duckdb -1", desc = "Scroll one column to the left" },
+  { on = "L", run = "plugin duckdb +1", desc = "Scroll one column to the right" },
+  { on = [ "g", "o" ], run = "plugin duckdb -open", desc = "Open with DuckDB" },
+  { on = [ "g", "u" ], run = "plugin duckdb -ui", desc = "Open with DuckDB UI" },
+  { on = [ "o", "o" ], run = "plugin wezterm", desc = "Abrir WezTerm en este directorio" },
+]

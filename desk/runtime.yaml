@@ -1,0 +1,33 @@
+runtime:
+  provider: herdr
+  terminal:
+    provider: wezterm
+  editor:
+    command: [nvim, .]
+  navigator:
+    command: [yazi]
+  agent:
+    provider: pi
+  worktree:
+    root: ~/.worktrees
+  layout:
+    default: agent-dev
+
+layouts:
+  agent-dev:
+    tabs:
+      - name: work
+        panes:
+          direction: horizontal
+          children:
+            - command: [nvim, .]
+            - direction: vertical
+              children:
+                - agent:
+                    role: executor
+                - agent:
+                    role: tester
+            - direction: vertical
+              children:
+                - command: [yazi]
+                - command: [pytest]
