@@ -21,7 +21,7 @@ def main() -> int:
         return 1
 
     sys.path.insert(0, str(root))
-    from deskops.runtime.herdr import AgentSpec, ExecutionPlan, HerdrProvider
+    from deskops.runtime.herdr import AgentSpec, ExecutionPlan, HerdrClient, HerdrProvider
     from deskops.runtime.herdr import LayoutPaneSpec, ProcessSpec
 
     panes = [
@@ -35,7 +35,16 @@ def main() -> int:
             LayoutPaneSpec("tester", parent="root", direction="down", agent=AgentSpec("tester", kind="pi")),
         ])
 
-    handle = HerdrProvider().create_workspace(
+    client = HerdrClient()
+    existing = client.call("workspace", "list").get("result", {}).get("workspaces", [])
+    for workspace in existing:
+        if isinstance(workspace, dict) and workspace.get("label") == "opsys":
+            workspace_id = workspace.get("workspace_id", "unknown")
+            print(f"Herdr Space already exists: {workspace_id} (opsys)")
+            print("Attach with: herdr")
+            return 0
+
+    handle = HerdrProvider(client).create_workspace(
         ExecutionPlan(desk_id="opsys", cwd=root, label="opsys", panes=tuple(panes))
     )
     print(f"Created Herdr Space: {handle.workspace_id} (opsys)")
