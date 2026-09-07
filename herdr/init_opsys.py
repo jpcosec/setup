@@ -21,8 +21,17 @@ def main() -> int:
         return 1
 
     sys.path.insert(0, str(root))
+    from deskops.config import DeskConfig
+    from deskops.operations import DeskopsOperations
     from deskops.runtime.herdr import AgentSpec, ExecutionPlan, HerdrClient, HerdrProvider
     from deskops.runtime.herdr import LayoutPaneSpec, ProcessSpec
+
+    desk_config = DeskConfig.load(root / "desk")
+    if desk_config.project_identity == "unknown-project":
+        print("DeskOps project_identity is not established in desk/config.json", file=sys.stderr)
+        return 1
+    tasks = DeskopsOperations(root).list_tasks()
+    desk_id = desk_config.project_identity
 
     panes = [
         LayoutPaneSpec("root", process=ProcessSpec("editor", ("nvim", "."))),
@@ -38,16 +47,17 @@ def main() -> int:
     client = HerdrClient()
     existing = client.call("workspace", "list").get("result", {}).get("workspaces", [])
     for workspace in existing:
-        if isinstance(workspace, dict) and workspace.get("label") == "opsys":
+        if isinstance(workspace, dict) and workspace.get("label") == desk_id:
             workspace_id = workspace.get("workspace_id", "unknown")
-            print(f"Herdr Space already exists: {workspace_id} (opsys)")
+            print(f"Herdr Space already exists: {workspace_id} ({desk_id})")
             print("Attach with: herdr")
             return 0
 
     handle = HerdrProvider(client).create_workspace(
-        ExecutionPlan(desk_id="opsys", cwd=root, label="opsys", panes=tuple(panes))
+        ExecutionPlan(desk_id=desk_id, cwd=root, label=desk_id, panes=tuple(panes))
     )
-    print(f"Created Herdr Space: {handle.workspace_id} (opsys)")
+    print(f"DeskOps identity: {desk_id}; tasks discovered: {len(tasks)}")
+    print(f"Created Herdr Space: {handle.workspace_id} ({desk_id})")
     print(f"Panes: {handle.panes}")
     if handle.agents:
         print(f"Agents: {handle.agents}")

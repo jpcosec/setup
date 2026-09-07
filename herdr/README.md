@@ -10,8 +10,8 @@ pane, tab, process, or workspace IDs.
 /home/jp/setup/install/init-herdr.sh
 ```
 
-This creates one `opsys` Space using the local Opsys/DeskOps repository as its
-working directory, with Neovim, Yazi, and tests. Add `--agents` to start the
+This creates one Space using the canonical `project_identity` from the local
+Opsys/DeskOps desk as its working directory, with Neovim, Yazi, and tests. Add `--agents` to start the
 executor and tester Pi agents. The printed Herdr IDs are runtime references;
 do not copy them into configuration files.
 
