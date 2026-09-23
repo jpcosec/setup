@@ -35,6 +35,9 @@ M.keys = {
   { key = "p", mods = "CTRL|SHIFT", action = act.EmitEvent("rename-current-pane"), desc = "Rename current pane" },
   { key = "d", mods = "CTRL|SHIFT", action = act.EmitEvent("move-tab-to-new-window"), desc = "Move current tab to a new window" },
 
+  -- Fullscreen
+  { key = "F11", mods = "NONE", action = act.ToggleFullScreen, desc = "Toggle fullscreen" },
+
   -- Move pane to predefined tabs
   { key = "1", mods = "CTRL|SHIFT", action = act.EmitEvent("move-pane-to-tab-1"), desc = "Move pane to Main tab" },
   { key = "2", mods = "CTRL|SHIFT", action = act.EmitEvent("move-pane-to-tab-2"), desc = "Move pane to Logs tab" },
