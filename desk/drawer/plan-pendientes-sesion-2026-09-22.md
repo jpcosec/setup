@@ -58,7 +58,7 @@ Notas:
 ## Bloqueantes
 
 - **Nada está commiteado**: 4 modified y untracked en setup — los 22 originales más los 2 artefactos de la sesión 2026-09-23 (hermes-agent-evaluacion.md y el propio plan).
-- **Store sldb en `valid: false`**: 78 `HerdrCommandDoc` y 26 `ExternalResourceDoc` en `data_mutation`.
+- **Store sldb stale, no roto**: 26 `ExternalResourceDoc` con `hash_d` desactualizado (los 80 `HerdrCommandDoc` ya están OK). Staleness esperable tras mutar el modelo, no un defecto: se resuelve con `sldb stores update --store .sldb --pythonpath .`.
 - **Ediciones a mano en `herdr/models.py`**: 2 ediciones que nunca pasaron por el flujo draft-validate-promote.
 - **Handoff del bug de sldb**: el texto del handoff sigue sin persistirse como archivo; el trabajo del fix ya arrancó en el worktree /home/jp/proyectos/_worktrees/sldb-fields-newline.
 
