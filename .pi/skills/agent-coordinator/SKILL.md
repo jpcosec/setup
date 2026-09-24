@@ -128,6 +128,21 @@ bash /home/jp/setup/herdr/coordination.sh workers-focus   # look at the workers
 bash /home/jp/setup/herdr/coordination.sh workers-close   # close tab + all workers
 ```
 
+Finishing one worker. `close` accepts a name now, same as every other command:
+
+```bash
+bash /home/jp/setup/herdr/coordination.sh ls               # my workers: pane status name cwd
+bash /home/jp/setup/herdr/coordination.sh ls --all         # every coordinator's workers
+bash /home/jp/setup/herdr/coordination.sh which pi2        # pane id a target resolves to
+bash /home/jp/setup/herdr/coordination.sh close pi2        # close ONE worker (name or pane id)
+bash /home/jp/setup/herdr/coordination.sh reap             # close my dead workers, forget stale panes
+bash /home/jp/setup/herdr/coordination.sh reap --finished  # also close my done/idle workers
+bash /home/jp/setup/herdr/coordination.sh help             # full command list
+```
+
+`ls`, `reap` and `help` are aliases. When in doubt about how to close something:
+`which <name>` resolves it and `close <name>` closes it.
+
 Rename the tab with `HERDR_WORKERS_TAB=<label>` (default `subagents`).
 You still reach any worker by pane id or agent name from your own tab:
 `dispatch pi2 "..."`, `read wJ:p5`.

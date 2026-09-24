@@ -20,17 +20,21 @@
 #   herdr/coordination.sh workers-tab            # print the workers tab id
 #   herdr/coordination.sh workers-focus          # bring the workers tab up
 #   herdr/coordination.sh workers-close          # close the whole workers tab (EVERY coordinator's)
-#   herdr/coordination.sh workers                # this coordinator's workers: pane status name cwd
-#   herdr/coordination.sh close <pane>           # close ONE worker pane, as soon as its work is verified
+#   herdr/coordination.sh workers [--all]        # this coordinator's workers: pane status name cwd
+#   herdr/coordination.sh ls [--all]             # alias of workers
+#   herdr/coordination.sh which <TARGET>         # print the pane id a target resolves to
+#   herdr/coordination.sh close <TARGET>         # close ONE worker (pane id or name), once its work is verified
+#   herdr/coordination.sh reap [--finished|--all]  # alias of workers-reap
 #   herdr/coordination.sh workers-reap [--finished|--all]
 #                                        # close this coordinator's dead workers (default), also its
 #                                        # done/idle ones (--finished), or all of them (--all)
+#   herdr/coordination.sh help                    # print this help
 #
 # Workers spawn in a separate tab (default "subagents", $HERDR_WORKERS_TAB) so
 # they never flood the coordinator's screen. The tab is created on first spawn,
 # reused afterwards, and never stealing focus.
 #
-# TARGET: agent kind (first match) or pane id (precise, e.g. w6:p6).
+# TARGET: pane id (w6:p6), worker name (pi2), unique name prefix, or agent kind (first match).
 # Transcript: $HERDR_TRANSCRIPT (default ./.herdr-coordination.md)
 set -euo pipefail
 
@@ -170,19 +174,66 @@ for p in json.load(sys.stdin)["result"]["panes"]:
     print("%s\t%s" % (p["pane_id"], (p.get("agent") and p.get("agent_status")) or "-"))' 2>/dev/null || true
 }
 
-# Close one worker pane and forget it. The explicit, always-safe way to finish a worker.
+# Print the leading comment block. Kept in sync with the header by construction:
+# add a line there and it shows up in `help`, never a truncated `sed` range.
+usage() {
+  awk 'NR == 1 {next} /^#/ {print; next} {exit}' "$0"
+}
+
+# Resolve a worker target to a pane id. A pane id passes through; otherwise the
+# worker name from this coordinator's registry (exact, then unique prefix), then
+# any live pane whose agent name matches.
+resolve_pane_id() {
+  local t="$1" hit
+  case "$t" in w*:*) printf '%s\n' "$t"; return 0 ;; esac
+  if [ -f "$WORKERS_DB" ]; then
+    hit=$(awk -F'\t' -v n="$t" -v o="$OWNER" '$5 == o && $3 == n {print $2}' "$WORKERS_DB" | head -1)
+    [ -n "$hit" ] || hit=$(awk -F'\t' -v n="$t" -v o="$OWNER" '$5 == o && index($3, n) == 1 {print $2}' "$WORKERS_DB" | head -1)
+    if [ -n "$hit" ]; then printf '%s\n' "$hit"; return 0; fi
+  fi
+  herdr agent list | python3 -c '
+import json, sys
+t = sys.argv[1]
+for p in json.load(sys.stdin)["result"]["agents"]:
+    if (p.get("name") or "") == t or (p.get("agent") or "") == t:
+        print(p["pane_id"]); break
+' "$t" 2>/dev/null || true
+}
+
+# Close one worker and forget it. The explicit, always-safe way to finish a worker.
+# Accepts a pane id or a worker name, same as every other command.
 cmd_close() {
   need_herdr
-  herdr pane close "$1" >/dev/null 2>&1 || true
-  forget_worker "$1"
-  printf 'closed %s\n' "$1"
+  local target="$1" pane
+  pane=$(resolve_pane_id "$target")
+  [ -n "$pane" ] || die "cannot resolve worker target: $target"
+  herdr pane close "$pane" >/dev/null 2>&1 || true
+  forget_worker "$pane"
+  printf 'closed %s (%s)\n' "$pane" "$target"
+}
+
+# Print the pane id a target resolves to, without touching it.
+cmd_which() {
+  need_herdr
+  local pane; pane=$(resolve_pane_id "$1")
+  [ -n "$pane" ] || die "cannot resolve worker target: $1"
+  printf '%s\n' "$pane"
 }
 
 # This coordinator's registered workers: pane, status, name, cwd.
 cmd_workers() {
   need_herdr
   [ -f "$WORKERS_DB" ] || return 0
-  local states; states=$(pane_states)
+  local all="${1:-}" states
+  states=$(pane_states)
+  if [ "$all" = "--all" ]; then
+    awk -F'\t' '{print $2 "\t" $3 "\t" $4 "\t" $5}' "$WORKERS_DB" |
+      while IFS=$'\t' read -r pane name cwd owner; do
+        st=$(printf '%s\n' "$states" | awk -F'\t' -v p="$pane" '$1 == p {print $2}')
+        printf '%-8s %-9s %-16s %-10s %s\n' "$pane" "${st:-gone}" "$name" "$owner" "$cwd"
+      done
+    return 0
+  fi
   awk -F'\t' -v o="$OWNER" '$5 == o {print $2 "\t" $3 "\t" $4}' "$WORKERS_DB" |
     while IFS=$'\t' read -r pane name cwd; do
       st=$(printf '%s\n' "$states" | awk -F'\t' -v p="$pane" '$1 == p {print $2}')
@@ -308,9 +359,9 @@ cmd_spawn_fork() {
   cmd_spawn "$kind" "${cwd:-$PWD}" --fork "$path"
 }
 
-cmd="${1:-}"; [ -n "$cmd" ] || { sed -n '2,20p' "$0"; exit 1; }
+cmd="${1:-}"; [ -n "$cmd" ] || { usage; exit 1; }
 shift
-case "$cmd" in dispatch|say|read|wait|spawn|close) [ $# -ge 1 ] || die "usage: coordination.sh $cmd <TARGET> [args]" ;; esac
+case "$cmd" in dispatch|say|read|wait|spawn|close|which) [ $# -ge 1 ] || die "usage: coordination.sh $cmd <TARGET> [args]" ;; esac
 case "$cmd" in
   spawn-fork) [ $# -ge 2 ] || die "usage: coordination.sh spawn-fork <kind> <uuid> [cwd]" ;;
 esac
@@ -326,6 +377,10 @@ case "$cmd" in
   workers-focus) cmd_workers_focus "$@" ;;
   workers-close) cmd_workers_close "$@" ;;
   workers)       cmd_workers "$@" ;;
+  ls)            cmd_workers "$@" ;;
+  which)         cmd_which "$@" ;;
+  reap)          cmd_workers_reap "$@" ;;
+  help|--help|-h) usage ;;
   workers-reap)  cmd_workers_reap "$@" ;;
   close)         cmd_close "$@" ;;
   *)          die "unknown command: $cmd" ;;
