@@ -65,14 +65,15 @@ of the same kind does not collide.
 ### Which model a worker should run
 
 Workers are cheap labour: they execute a scoped task, not architecture. Default to
-**`pi` + DeepSeek Flash**, and never burn Opus on a subagent.
+**`pi` + DeepSeek Flash via the direct `deepseek` provider**, and never burn Opus on a subagent.
 
 Prices below are per 1M tokens, read from the live OpenRouter and DeepSeek model
 APIs (not guessed). All listed models were verified to actually execute tools.
 
 | Use | Command tail |
 |---|---|
-| **Default worker** | `spawn pi <cwd> --provider openrouter --model '~deepseek/deepseek-v4-flash-latest'` |
+| **Default worker** | `spawn pi <cwd> --provider deepseek --model deepseek-flash` (direct DeepSeek API; the owner's choice) |
+| OpenRouter alternative | `spawn pi <cwd> --provider openrouter --model '~deepseek/deepseek-v4-flash-latest'` |
 | **Second choice** | `spawn pi <cwd> --provider openrouter --model '~z-ai/glm-flash-latest'` |
 | **Testing the harness** | `spawn pi <cwd> --provider openrouter --model nvidia/nemotron-3.5-lightning:free` |
 
