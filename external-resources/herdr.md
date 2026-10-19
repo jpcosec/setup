@@ -44,3 +44,10 @@ _Dated log of problems, quirks, and fixes; keep empty when not installed._
 - Sin usar: sesiones nombradas (--session), attach/detach, --remote <ssh-target>, herdr update --handoff, machine subcommand, server reload-config, multiples layouts (solo agent-dev), panes para procesos largos (bunwv daemon, pytest, fx), hooks solo en Codex SessionStart.
 - El contracto dice cada DeskOps desk = 1 Herdr workspace, pero solo existe el desk opsys; los agentes solo arrancan con --agents (opcional), no por defecto.
 - 2026-09-13: PARCIALMENTE RESUELTO — kit de coordinacion creado: herdr/coordination.sh (agents/dispatch/say/read/wait/spawn sobre herdr agent API) + skill agent-coordinator en .pi/skills (path agregado a settings de pi). Los workers son agentes interactivos en panes herdr; el coordinador es cualquier sesion con la skill.
+
+## Related repos
+
+- https://github.com/ChmaraX/herdr-nvim — Neovim integration for Herdr.
+- https://github.com/aemrebarut/herdr-dagr —
+- https://github.com/permgps/herdr-telegram-agents — Telegram control of Herdr agents.
+- https://github.com/AltanS/collie —

@@ -5,17 +5,12 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-routine: routine-task-centralizar-configuraciones-personales-en-setup
-current_node: checklist-task-centralizar-configuraciones-personales-en-setup-execution-ready
+current_node: ritual-execution
 history: []
 references: []
 depends_on: []
 pills: []
 files: []
-checklists:
-- checklist-task-centralizar-configuraciones-personales-en-setup-execution-ready
-- checklist-task-centralizar-configuraciones-personales-en-setup-testing-ready
-- checklist-task-centralizar-configuraciones-personales-en-setup-closeout-ready
 task_type: design
 inherits_from: []
 inherit_acceptance_context: false
