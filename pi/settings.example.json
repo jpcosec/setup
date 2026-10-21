@@ -1,21 +1,26 @@
 {
   "lastChangelogVersion": "0.67.3",
-  "defaultProvider": "openrouter",
-  "defaultModel": "z-ai/glm-5.3-flash",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-5-5",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:pi-web-access"
   ],
   "skills": [],
   "enabledModels": [
-    "openrouter/deepseek/deepseek-v4-flash",
-    "google-antigravity/gemini-3.1-pro",
-    "anthropic/claude-opus-4-8",
+    "anthropic/claude-opus-5-5",
+    "anthropic/claude-sonnet-5-5",
+    "anthropic/claude-haiku-5-5",
+    "anthropic/claude-fable-5-1",
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6-sol",
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-5.6-terra",
+    "google-antigravity/gemini-3.8-flash",
+    "google-antigravity/claude-opus-5.5",
+    "google-antigravity/claude-sonnet-5.5",
     "google-antigravity/gpt-oss-120b",
-    "google-antigravity/claude-opus-4.6",
-    "openrouter/openrouter/free",
-    "openrouter/qwen/qwen3-coder",
-    "anthropic/claude-fable-5",
-    "openai-codex/gpt-5.4"
+    "deepseek/deepseek-flash",
+    "deepseek/deepseek-v4-pro"
   ]
 }
