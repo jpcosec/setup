@@ -41,6 +41,8 @@ printf '%s\n' "Herdr initializer: python3 $SETUP_ROOT/herdr/init_opsys.py"
 printf '%s\n' "Convenience wrapper: $SETUP_ROOT/install/init-herdr.sh"
 printf '%s\n' 'Add --agents to start executor/tester Pi agents.'
 
+link_path "$SETUP_ROOT/pi/get-secret" "$HOME/.pi/agent/bin/get-secret"
+
 printf '%s\n' 'Pi configuration is intentionally not linked automatically.'
 printf '%s\n' 'Copy pi/settings.example.json to ~/.pi/agent/settings.json only after review.'
 printf '%s\n' 'Keep ~/.pi/agent/models.json and auth.json machine-local.'

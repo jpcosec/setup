@@ -19,3 +19,4 @@ __pycache__/
 *.pyc
 *.bak-*
 .herdr-coordination.md
+secrets.env
