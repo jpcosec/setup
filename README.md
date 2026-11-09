@@ -42,10 +42,22 @@ Installed via Mason:
 - ruff
 - rust-analyzer
 
+## Shell
+
+`shell/yazi.sh` defines `y`, a Yazi wrapper: quitting with `q` leaves the shell
+in Yazi's last directory (`Q` quits without changing it). `install/install.sh`
+adds a single line to `~/.bashrc` that sources it from this repo, so edits to the
+function apply in new shells without reinstalling:
+
+```bash
+[ -f ~/setup/shell/yazi.sh ] && . ~/setup/shell/yazi.sh
+```
+
 ## Bootstrap
 
 ```bash
-# Create symlinks from this repo to XDG config paths
+# Create symlinks from this repo to XDG config paths,
+# and source shell/yazi.sh from ~/.bashrc (idempotent; safe to rerun)
 bash install/install.sh
 
 # Additional tools (tarball-based, no snap)
