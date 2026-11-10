@@ -6,6 +6,7 @@ scope: desk
 # List of task-xxx paths
 tasks:
 - desk/tasks/task-centralizar-configuraciones-personales-en-setup.md
+- desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pills.md
@@ -38,3 +39,4 @@ _Add short operational notes about the current routed set._
 _Generated from the task references above._
 
 - Centralizar configuraciones personales en setup [draft] - Crear un repositorio setup versionable que contenga configuraciones públicas, plantillas de secretos y un instalador seguro para reconstruir la configuración local.
+- Scion autonomy runtime bootstrap and Pi lifecycle bridge [draft] - A reproducible Scion start uses intended current desk/tools, valid worktree paths and a native Pi event bridge so a disposable authorized desk can run without manual prompts through child execution, independent test and closeout/continuation.
