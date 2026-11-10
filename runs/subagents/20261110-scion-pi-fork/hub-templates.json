@@ -1,0 +1,105 @@
+{
+  "templates": [
+    {
+      "id": "cb1308a7-fdda-4bbe-b159-353ccebd156d",
+      "name": "deskops-coordinator",
+      "slug": "deskops-coordinator",
+      "harness": "",
+      "defaultHarnessConfig": "pi",
+      "image": "",
+      "contentHash": "sha256:2c781e193feb098518f5222d89151463183fd83aaef6b6ddfbd51c98620000a6",
+      "scope": "project",
+      "scopeId": "b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7",
+      "projectId": "b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7",
+      "storageUri": "gs://local/hubs/b3eacd33433b/templates/groves/b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7/deskops-coordinator/",
+      "storageBucket": "local",
+      "storagePath": "hubs/b3eacd33433b/templates/groves/b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7/deskops-coordinator",
+      "files": [
+        {
+          "path": "agents.md",
+          "size": 3093,
+          "hash": "sha256:fd7582e07cc0894e5afaa933288892a227bc59bb63eeaed240bddb67ef258795",
+          "mode": "0644"
+        },
+        {
+          "path": "scion-agent.yaml",
+          "size": 1460,
+          "hash": "sha256:749fbe2185b308f2e3bfd2202db5d79d321b8aefb19cbcca740731e3c4c89779",
+          "mode": "0644"
+        },
+        {
+          "path": "system-prompt.md",
+          "size": 2696,
+          "hash": "sha256:8e3d835627c4456987ef5653a453c474856cccb384b6af7388fab0adf2a51f81",
+          "mode": "0644"
+        }
+      ],
+      "status": "active",
+      "visibility": "private",
+      "created": "2026-11-10T00:57:34.262813652-03:00",
+      "updated": "2026-11-10T00:57:34.45306025-03:00",
+      "_capabilities": {
+        "actions": [
+          "read",
+          "update",
+          "delete"
+        ]
+      },
+      "groveId": "b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7"
+    },
+    {
+      "id": "f144a191-9464-47e0-a4bb-42d613dbfe8e",
+      "name": "deskops-executor",
+      "slug": "deskops-executor",
+      "harness": "",
+      "defaultHarnessConfig": "pi",
+      "image": "",
+      "contentHash": "sha256:a2f6e6c6fce9570267153c4e36dbe21d7154aa4125ba87524bad797931a48f4e",
+      "scope": "project",
+      "scopeId": "b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7",
+      "projectId": "b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7",
+      "storageUri": "gs://local/hubs/b3eacd33433b/templates/groves/b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7/deskops-executor/",
+      "storageBucket": "local",
+      "storagePath": "hubs/b3eacd33433b/templates/groves/b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7/deskops-executor",
+      "files": [
+        {
+          "path": "agents.md",
+          "size": 1681,
+          "hash": "sha256:6567fc9307d7de75ec3247915a36775eb75aa1fc9ca2c0d6a91befb8419d8f0b",
+          "mode": "0644"
+        },
+        {
+          "path": "scion-agent.yaml",
+          "size": 1358,
+          "hash": "sha256:5709af5a43e6ed286ae51ff67a848dbca230ab9bf5004dadc1104f8823321028",
+          "mode": "0644"
+        },
+        {
+          "path": "system-prompt.md",
+          "size": 2794,
+          "hash": "sha256:7f8cff35ff5dfbc18bcc1e41fb07fb0c4b50813ef23d17a5edce93ae6b6dbdc2",
+          "mode": "0644"
+        }
+      ],
+      "status": "active",
+      "visibility": "private",
+      "created": "2026-11-10T00:57:33.762148476-03:00",
+      "updated": "2026-11-10T00:57:34.129844262-03:00",
+      "_capabilities": {
+        "actions": [
+          "read",
+          "update",
+          "delete"
+        ]
+      },
+      "groveId": "b0899ed7-7dec-44c2-a9b9-d0ac92c61cc7"
+    }
+  ],
+  "totalCount": 2,
+  "_capabilities": {
+    "actions": [
+      "create",
+      "list"
+    ]
+  }
+}

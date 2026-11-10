@@ -1,0 +1,16 @@
+Usage: install-pi-fork.sh (Node >=20.6, npm, git; installs pinned fork under ~/bin/pirate/pi-mono)
+Python syntax: PASS
+usage: sync-deepseek-secret.py [-h] [--source SOURCE]
+                               [--project-id PROJECT_ID] [--hub HUB]
+                               [--token-file TOKEN_FILE]
+
+Upload only the local DeepSeek key; never display credentials or API bodies.
+
+options:
+  -h, --help            show this help message and exit
+  --source SOURCE
+  --project-id PROJECT_ID
+  --hub HUB
+  --token-file TOKEN_FILE
+Python syntax after Scion base64 correction: PASS
+Python --help after correction: PASS

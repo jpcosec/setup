@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/robocop/setup
+collected 20 items
+
+tests/test_scion_pi_runtime.py ....................                      [100%]
+
+============================== 20 passed in 0.10s ==============================
+Usage: install-pi-fork.sh (Node >=20.6, npm, git; installs pinned fork under ~/bin/pirate/pi-mono)
+
+Integration PASS: actual DeepSeek desk read, identical session id 01a1c3a1-1449-77e4-8e78-b43dbb40370f, post-start nonce retained, owned agents stopped, project templates discovered through CLI and Hub API.

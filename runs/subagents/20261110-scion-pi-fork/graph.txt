@@ -1,0 +1,5 @@
+Missing graph references:
+- missing_declared_target: task:task-habilitar-deskops-y-pi-del-fork-en-scion -> https://github.com/jpcosec/pi-mono/tree/e9ba9e2ebce1b49dca85ab20007038c06e486ea5
+  provenance: desk/tasks/task-habilitar-deskops-y-pi-del-fork-en-scion.md:frontmatter
+  reason: declared target was not found among extracted graph nodes
+1 missing, 0 informational

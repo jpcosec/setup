@@ -1,0 +1,11 @@
+{
+  "image_id": "sha256:faf7c9f420bfccf5f582fe4e38b060f6319e99743db4e9ab2dc88e127cbcc734",
+  "labels": {
+    "io.setup.pi.revision": "e9ba9e2ebce1b49dca85ab20007038c06e486ea5",
+    "io.setup.pi.source": "https://github.com/jpcosec/pi-mono",
+    "io.setup.pi.version": "0.67.3"
+  },
+  "host_pi": "/home/robocop/bin/pirate/pi-mono/packages/coding-agent/dist/cli.js",
+  "fork_commit": "e9ba9e2ebce1b49dca85ab20007038c06e486ea5",
+  "scion_version": "v0.2.21"
+}

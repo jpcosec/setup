@@ -1,0 +1,10 @@
+Board: board-001
+Title: setup Board
+status: 
+summary: 
+scope: desk
+purpose: 
+tasks: desk/tasks/task-centralizar-configuraciones-personales-en-setup.md, desk/tasks/task-habilitar-deskops-y-pi-del-fork-en-scion.md
+pills: desk/contexts/pills.md
+rituals: desk/rituals/execution.md, desk/rituals/testing.md, desk/rituals/closeout.md
+notes: 

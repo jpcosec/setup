@@ -6,7 +6,6 @@ scope: desk
 # List of task-xxx paths
 tasks:
 - desk/tasks/task-centralizar-configuraciones-personales-en-setup.md
-- desk/tasks/task-habilitar-deskops-y-pi-del-fork-en-scion.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pills.md
@@ -37,3 +36,5 @@ _Add short operational notes about the current routed set._
 ## Task Details
 
 _Generated from the task references above._
+
+- Centralizar configuraciones personales en setup [draft] - Crear un repositorio setup versionable que contenga configuraciones públicas, plantillas de secretos y un instalador seguro para reconstruir la configuración local.

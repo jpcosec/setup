@@ -1,0 +1,43 @@
+el resultado y espera un mensaje posterior para la prueba de memoria. Las
+ instrucciones de escritura de la plantilla quedan suspendidas para esta
+ prueba.
+
+
+ I'll run the two read-only checks.
+
+
+ $ deskops list tasks --root /workspace/deskops; echo "---EXIT:$?---"
+
+ task-cc30-limpieza-previa-operations-py-como-fachada-y-fuera-los-spec-yaml-dup
+ licados | draft | ritual-execution
+ ---EXIT:0---
+
+ Took 1.1s
+
+
+
+ $ pi --version; echo "---EXIT:$?---"
+
+ 0.67.3
+ ---EXIT:0---
+
+ Took 1.0s
+
+
+ Resultados de la prueba de solo lectura:
+
+ - deskops list tasks --root /workspace/deskops → exit 0. Una tarea listada:
+     -
+ task-cc30-limpieza-previa-operations-py-como-fachada-y-fuera-los-spec-yaml-dup
+ licados | estado draft | tipo ritual-execution
+ - pi --version → exit 0, versión 0.67.3.
+
+ No se implementó, modificó ni cerró nada; no se crearon archivos de evidencia
+ ni tasks, y no se leyeron credenciales. Quedo a la espera del mensaje
+ posterior para la prueba de memoria.
+
+────────────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────────────
+/workspace
+↑472 ↓267 R2.8k 0.2%/1.0M (auto)                         deepseek-flash • medium

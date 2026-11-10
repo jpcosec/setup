@@ -12,6 +12,9 @@ Versioned configuration for the local interactive workspace:
 Secrets, OAuth state, sessions, caches, and machine-local overrides stay outside
 this repository.
 
+The agreed Scion/Pi execution model, fork provenance, and pending migration are
+documented in [pi/README.md](pi/README.md).
+
 ## Runtime contract
 
 Each DeskOps desk is one Herdr workspace. The file `desk/runtime.yaml` describes

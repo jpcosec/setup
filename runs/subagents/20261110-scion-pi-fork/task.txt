@@ -1,0 +1,7 @@
+Task: task-habilitar-deskops-y-pi-del-fork-en-scion
+Title: Habilitar DeskOps y Pi del fork en Scion
+Status: draft
+Current node: ritual-execution
+Task type: task.external
+From drawer: desk/drawer/tasks/task-habilitar-deskops-pi-fork-en-scion.md
+Closeout evidence: commit, document, external

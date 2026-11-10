@@ -1,0 +1,1 @@
+Fresh reviewer /root/scion_preflight, task-only reformulation: pinned host/container fork, sldb-1 templates, secret delivery, read-only desk smoke, real stop/resume retaining nonce, operational docs. Updated TaskDoc resolves initial ambiguity about session proof, snapshots and template destination. Reviewer accepted updated task without remaining planning blockers.
