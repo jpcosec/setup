@@ -1,7 +1,10 @@
 ---
 id: task-habilitar-deskops-y-pi-del-fork-en-scion
 status: draft
-summary: ''
+summary: 'Execution handoff complete: fork Pi0.67.3 host/image, Python3.12 DeskOps/SLDB,
+  project key, Hub templates and fixed-session launcher. Independent testing handoff:
+  20 tests pass; live desk read and post-start nonce across stop/resume retain session
+  id; agents stopped; sanitized evidence in runs/subagents/20261110-scion-pi-fork.'
 tags:
 - workspace:desk
 - artifact:task
@@ -9,15 +12,22 @@ current_node: ritual-execution
 history: []
 references:
 - https://github.com/jpcosec/pi-mono/tree/e9ba9e2ebce1b49dca85ab20007038c06e486ea5
-- 7ac2efa
+- 1c3fa79
+- tests/test_scion_pi_runtime.py
+- pi/scion/README.md
+- runs/subagents/20261110-scion-pi-fork/result-summary.md
 depends_on: []
 pills: []
 files:
+- README.md
 - pi/README.md
 - pi/scion/README.md
 - pi/scion/install-pi-fork.sh
 - pi/scion/Dockerfile
 - pi/scion/sync-deepseek-secret.py
+- pi/scion/launch.py
+- pi/scion/harness-config.yaml
+- tests/test_scion_pi_runtime.py
 task_type: task.external
 inherits_from: []
 inherit_acceptance_context: false
