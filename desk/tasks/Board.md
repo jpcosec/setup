@@ -6,6 +6,7 @@ scope: desk
 # List of task-xxx paths
 tasks:
 - desk/tasks/task-centralizar-configuraciones-personales-en-setup.md
+- desk/tasks/task-habilitar-deskops-y-pi-del-fork-en-scion.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pills.md
