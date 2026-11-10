@@ -53,7 +53,7 @@ Instalacion local reproducible documentada en setup/pi; Scion v0.2.21 sin upgrad
 
 _Outline the expected implementation route or affected surface._
 
-Revision fresca; compilar fork fijado en ~/bin/pirate/pi-mono; imagen y bundle pi compatibles con Scion v0.2.21; herramientas Python desde checkouts locales sin secretos; importar solo DEEPSEEK_API_KEY; generar plantillas desde roles/perfiles DeskOps; smoke de lectura y reanudacion; runbook reproducible en pi/; cerrar tras evidencia.
+Revision fresca; instalar fork e9ba9e2ebce1b49dca85ab20007038c06e486ea5 en ~/bin/pirate/pi-mono sin alterar source; compilar solo paquetes necesarios; imagen y bundle pi locales para Scion v0.2.21; instalar wheels de snapshots sin secretos de /mnt/ssd/proyectos/SLDB_1/{deskops,sldb} y dependencias Python en imagen. Generar deskops-executor y deskops-coordinator desde roles y perfiles y publicarlas en proyecto sldb-1; importar solo DEEPSEEK_API_KEY desde archivo local via API sin valor en argv/logs. Smoke propio lectura: pedir nonce y CLI deskops list tasks --root /workspace/deskops; scion stop y scion resume deben reabrir sesion Pi y recordar nonce sin repetirlo. CLI y API de plantillas prueban descubrimiento usado por UI; no se exige automatizar navegador. No implementar supervisor ni trazabilidad avanzada. Recetas en setup/pi/scion, runbook y evidencia sanitizada.
 
 ## Validation
 
