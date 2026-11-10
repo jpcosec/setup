@@ -1,0 +1,43 @@
+{
+  "argv": [
+    "/home/robocop/.local/bin/pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--system-prompt",
+    "Revisor barato aislado, no ejecutas comandos ni herramientas. Solo usa el input explicitamente suministrado. Responde en español con REFORMULACION (resultado, repo, limites), AMBIGUEDADES (solo decisiones que faltan, con cita; ninguna si no hay), DRY-RUN (lecturas, cambios y validaciones hipoteticas), FUTURO (comprobaciones de implementacion, no confundir con ambiguedades). Maximo 450 palabras. No apruebes por un token: reformula el contrato completo.",
+    "--print",
+    "@/home/robocop/setup/runs/subagents/20261110-autonomy-bootstrap/context-review/bundle/5ef3df05ef5b6c3bed32cf7b41aae951693992572866f6fd0d107c778d6346ef/attempt-1/input.md"
+  ],
+  "sha256": "5ef3df05ef5b6c3bed32cf7b41aae951693992572866f6fd0d107c778d6346ef",
+  "model": "deepseek/deepseek-flash",
+  "selection": "Available verified cheap isolated profile; no expert substitution",
+  "sources": [
+    "desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md",
+    "README.md",
+    "pi/README.md",
+    "desk/tasks/Board.md",
+    "desk/contexts/pills.md",
+    "desk/rituals/execution.md",
+    "desk/rituals/testing.md",
+    "desk/rituals/closeout.md",
+    "desk/drawer/tasks/task-scion-autonomy-runtime-bootstrap.md",
+    "pi/scion/launch.py",
+    "pi/scion/harness-config.yaml",
+    "pi/scion/Dockerfile",
+    "/home/robocop/scion-build/web-v0.2.21/pkg/sciontool/hooks/handlers/status.go",
+    "/home/robocop/scion-build/web-v0.2.21/pkg/sciontool/hooks/dialects/claude.go",
+    "/home/robocop/bin/pirate/pi-mono/packages/coding-agent/src/core/extensions/types.ts"
+  ],
+  "returncode": 0
+}

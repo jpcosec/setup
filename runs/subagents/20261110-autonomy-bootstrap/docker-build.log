@@ -1,0 +1,56 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.78kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/scion-pi:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/scion-pi:latest
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 72.01kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/11] RUN npm uninstall -g @mariozechner/pi-coding-agent
+#6 CACHED
+
+#7 [ 3/11] COPY pi-mono/ /opt/pi-mono/
+#7 CACHED
+
+#8 [ 5/11] RUN npm ci --no-audit --no-fund  && ./node_modules/.bin/tsgo -p packages/tui/tsconfig.build.json  && ./node_modules/.bin/tsgo -p packages/ai/tsconfig.build.json  && ./node_modules/.bin/tsgo -p packages/agent/tsconfig.build.json  && ./node_modules/.bin/tsgo -p packages/coding-agent/tsconfig.build.json  && npm run copy-assets --workspace @mariozechner/pi-coding-agent  && chmod +x packages/coding-agent/dist/cli.js  && ln -s /opt/pi-mono/packages/coding-agent/dist/cli.js /usr/local/bin/pi  && test "$(pi --version 2>&1)" = 0.67.3
+#8 CACHED
+
+#9 [ 6/11] COPY uv /usr/local/bin/uv
+#9 CACHED
+
+#10 [ 4/11] WORKDIR /opt/pi-mono
+#10 CACHED
+
+#11 [ 7/11] COPY wheels/ /opt/setup-wheels/
+#11 CACHED
+
+#12 [ 8/11] RUN uv venv --python 3.12 /opt/deskops-tools  && uv pip install --python /opt/deskops-tools/bin/python /opt/setup-wheels/*.whl  && chmod -R a+rX /opt/python /opt/deskops-tools
+#12 CACHED
+
+#13 [ 9/11] COPY launch.py scion-events.ts /usr/local/lib/scion-pi/
+#13 DONE 0.1s
+
+#14 [10/11] RUN deskops --help >/dev/null && sldb --help >/dev/null
+#14 DONE 4.2s
+
+#15 [11/11] WORKDIR /workspace
+#15 DONE 0.0s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 0.2s done
+#16 writing image sha256:0c0d884cfcddb942d64ef81520faded04530cfd8ef497f5bbc86b71a8c41c1f7 done
+#16 naming to docker.io/library/scion-pi-autonomy:e9ba9e2 done
+#16 DONE 0.2s

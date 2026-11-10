@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-11-10T15:56:12.591386+00:00",
+  "image": "scion-pi-autonomy:e9ba9e2",
+  "image_id": "sha256:79bde468d5e32447be7ba39666429f69214755bc1a859e109c4009c1f579ffa1",
+  "pi": "0.67.3",
+  "pi_commit": "e9ba9e2ebce1b49dca85ab20007038c06e486ea5",
+  "host_hub_and_cli": "v0.2.21 55b99305 unchanged",
+  "container_scion_cli": "dev 5601064e inherited unchanged from existing scion-pi:latest base",
+  "pytest": "9.2.0",
+  "lab_project_id": "d7d9d3cd-60a1-46be-9a63-b56722521061",
+  "project_pi_harness_id": "443c5fe9-1258-430d-a56f-f884c9f1c2aa",
+  "project_pi_image": "scion-pi-autonomy:e9ba9e2",
+  "global_pi_harness_unchanged": true
+}

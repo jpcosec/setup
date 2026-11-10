@@ -1,0 +1,107 @@
+{
+  "key": "task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/bundle",
+  "input_sha256": "e4ec3da4a25d8049f7de20e338b9f0165650313af2845c8074070e11ee932380",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/home/robocop/setup/runs/subagents/20261110-autonomy-bootstrap/context-review/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/bundle/e4ec3da4a25d8049f7de20e338b9f0165650313af2845c8074070e11ee932380/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md",
+      "sha256": "83cf198b273c08463c309eb532dcdd604cf12be9101c2943ac476a1037868403",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "9b3030f3bd284ebe25c0d94fa7ec3ce8d4cafa70cf5a6a8fadddf36b8efa2e08",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "e69824e6f5d9b822970e0e0dd30dfe9e165189ff3951dcdfd42a879afd79b812",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "e8edb365a315ec709169fe72c8b710eb4a66710e517037e6a68bf5eddbb1a8b6",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/Dockerfile",
+      "sha256": "b0b5cfa9f1e1ea02caefb22137dc7d02c994526853ad734a6da04d774c918cc4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/harness-config.yaml",
+      "sha256": "a3cca37e8f6335d25dbd9206fa24e2f65b1846407555befeac4cc6e9c5d00e45",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/launch.py",
+      "sha256": "16fb19dca171a425fe796b31bd181ba0f69ce7b7ead2bcd112a3c52cfc0e3ce1",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/provision.py",
+      "sha256": "66fbd17baa30ca638e62792daf935753d85fd51ba6282308531b4e9783e5ac7b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/scion-events.ts",
+      "sha256": "6a63b548847bd7b67c7a855967b98195c8ad01b9e0dba2231fb80700ae1b3c11",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/start-desk.py",
+      "sha256": "b74df6885a7564c884b73cfcb5b070024549d54a689c8b02ec50c649a48c9141",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/scion/README.md",
+      "sha256": "aa9bdcc58470daa696ee25b7f84a4ea2b81614e9f5ba1061d0705a49aecc5b91",
+      "projection": "whole_file"
+    },
+    {
+      "path": "pi/README.md",
+      "sha256": "7ccadbcba77b776159a778e401e48a7c0f41e06da5f3ddf3a3def540cd2f0a0d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/test_scion_pi_runtime.py",
+      "sha256": "61d19f8138a6e4210842f1638aaedf3c6c79be2349dcc257045defb24a6a11e6",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/test_scion_autonomy.py",
+      "sha256": "b7a0e609635598571e4a5ffe68991f509559e108e3addba34a79a94297697012",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+      "sha256": "855b5cbc07823246428ad78dd4baec93368398924cdee750cf3589d5897d64bf",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [],
+  "started": "2026-11-10T18:01:36.972990+00:00",
+  "finished": "2026-11-10T18:02:04.046559+00:00"
+}

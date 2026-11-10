@@ -1,0 +1,18 @@
+usage: start-desk.py [-h] --root ROOT [--source-root SOURCE_ROOT]
+                     [--sldb-root SLDB_ROOT] --workspace-root WORKSPACE_ROOT
+                     --project PROJECT --agent AGENT --templates-dir
+                     TEMPLATES_DIR [--ref REF] [--hub HUB]
+
+Explicit, fail-closed bootstrap; Scion owns agents, DeskOps owns workflow.
+
+options:
+  -h, --help            show this help message and exit
+  --root ROOT
+  --source-root SOURCE_ROOT
+  --sldb-root SLDB_ROOT
+  --workspace-root WORKSPACE_ROOT
+  --project PROJECT
+  --agent AGENT
+  --templates-dir TEMPLATES_DIR
+  --ref REF
+  --hub HUB

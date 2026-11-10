@@ -1,0 +1,11 @@
+## main...origin/main [ahead 8]
+ M desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md
+ M nvim/lazy-lock.json
+?? desk/lifecycle/rule-activation-task-aggregate.md
+?? desk/lifecycle/rule-activation-task-code.md
+?? desk/lifecycle/rule-activation-task-debug.md
+?? desk/lifecycle/rule-activation-task-decision.md
+?? desk/lifecycle/rule-activation-task-docs.md
+?? desk/lifecycle/rule-activation-task-external.md
+?? desk/lifecycle/rule-activation-task-refactor.md
+?? runs/subagents/20261110-autonomy-bootstrap/

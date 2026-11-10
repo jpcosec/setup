@@ -1,0 +1,14 @@
+Missing graph references:
+- missing_declared_target: task:task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge -> desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md
+  provenance: desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md:line:27:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge -> test_file:tests/test_scion_autonomy.py
+  provenance: desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md:frontmatter
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge -> test_file:tests/test_scion_autonomy.py
+  provenance: desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md:line:12:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge -> test_file:tests/test_scion_autonomy.py
+  provenance: desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md:line:26:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+4 missing, 0 informational

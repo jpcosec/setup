@@ -1,0 +1,4 @@
+Parent verification after DEFAULT_SOURCE changed to deskops-runtime:
+/mnt/ssd/proyectos/SLDB_1/.venv/bin/python -m pytest -q tests/test_scion_pi_runtime.py tests/test_scion_autonomy.py
+38 passed in 5.63s
+Exit status: 0

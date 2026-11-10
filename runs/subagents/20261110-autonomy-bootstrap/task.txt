@@ -1,0 +1,6 @@
+Task: task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge
+Title: Scion autonomy runtime bootstrap and Pi lifecycle bridge
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+From drawer: desk/drawer/tasks/task-scion-autonomy-runtime-bootstrap.md

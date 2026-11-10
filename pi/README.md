@@ -64,3 +64,17 @@ La web se sirve en `http://127.0.0.1:8080`. Se verificaron respuestas HTTP 200
 del HTML, `/assets/main.js` y `/auth/me`, y la ausencia del mensaje
 `Web UI Not Available`. El binario de Scion conserva su versión.
 `scion server restart` reutiliza los argumentos guardados por el daemon.
+
+
+## Bootstrap autónomo reproducible
+
+El runtime tiene ahora un [bootstrap explícito](scion/start-desk.py) y un
+[puente de eventos Pi](scion/scion-events.ts). La receta y sus límites están en
+[bootstrap y eventos nativos](scion/README.md#bootstrap-explícito-y-eventos-nativos).
+La regla está capturada en el [átomo de autoridad](../desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md).
+El bootstrap valida fuentes/refs/paths, conserva checkouts originales, materializa
+las tres funciones de agente y reconcilia una coordinadora determinista. Requiere
+el contrato `--context-file` y tester de la fuente DeskOps probada. La validación
+unitaria usa únicamente fixtures; la autonomía real requiere evidencia de
+integración separada. Scion conserva sesiones y refresh de tokens; DeskOps/SLDB
+conservan validación y closeout.

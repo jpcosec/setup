@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-10T15:14:49.273697+00:00",
+  "agent": "deskops-bridge-probe-20261110",
+  "refresh_status": 200,
+  "refreshed_token_authenticated": true,
+  "expiry_returned": true,
+  "probe_persisted_token": false,
+  "limitation": "Explicit refresh endpoint exercised; scheduled ten-hour refresh not time-elapsed tested. Existing Scion proactive implementation retained."
+}

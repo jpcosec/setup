@@ -1,0 +1,1 @@
+Temporary review runner retried an identical task input twice while task-edit setup failed, reusing attempt-1. Those overwritten attempt-1 results are NOT accepted evidence. Runner corrected to allocate a new attempt directory; only fresh exact final-input reviews and coordinator comparisons can authorize execution. No source implementation ran under the superseded inputs.

@@ -1,3 +1,4 @@
+FILE:desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md
 ---
 id: task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge
 status: draft

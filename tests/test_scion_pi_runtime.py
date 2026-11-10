@@ -107,3 +107,25 @@ def test_secret_sync_scope_encoding_and_sanitized_failures(tmp_path, monkeypatch
     captured = capsys.readouterr()
     for credential in (secret, token, base64.b64encode(secret.encode()).decode()):
         assert credential not in captured.out + captured.err
+
+
+def test_autonomous_resume_recovers_once_without_initial_task(launcher, monkeypatch):
+    module, session, calls = launcher
+    persist(session, json.dumps({'type': 'session', 'id': 'dummy-id', 'cwd': str(Path.cwd())}) + '\n')
+    monkeypatch.setenv('DESKOPS_AUTONOMOUS', '1')
+    invoke(monkeypatch, module, ['--tools', 'read,bash', 'Original task'])
+    args = calls[0][1]
+    assert args[-1] == module.RECOVERY_PROMPT
+    assert 'Original task' not in args
+    assert str(session) in args
+
+
+def test_bridge_loading_respects_no_extensions(launcher, monkeypatch, tmp_path):
+    module, session, calls = launcher
+    bridge = tmp_path / 'scion-events.ts'
+    bridge.write_text('dummy extension')
+    monkeypatch.setattr(module, 'BRIDGE', bridge)
+    invoke(monkeypatch, module, ['Original task'])
+    assert calls[-1][1][-3:] == ['--extension', str(bridge), 'Original task']
+    invoke(monkeypatch, module, ['--no-extensions', 'Review only'])
+    assert '--extension' not in calls[-1][1]

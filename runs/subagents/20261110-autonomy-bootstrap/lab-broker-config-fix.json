@@ -1,0 +1,7 @@
+{
+  "project": "d7d9d3cd-60a1-46be-9a63-b56722521061",
+  "provider_local_path": "/home/robocop/.scion/project-configs/scion-autonomy-lab__d7d9d3cd/.scion",
+  "workspace_path": "/mnt/ssd/proyectos/SLDB_1",
+  "reason": "Hub linked-project dispatch clears request Workspace and derives it from project settings; a Git-local provider caused native per-agent worktree creation requiring unsupported host git --relative-paths. External non-Git runtime config matches existing production configuration and preserves DeskOps-owned task worktree.",
+  "installations_changed": false
+}

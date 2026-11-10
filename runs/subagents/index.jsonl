@@ -1,1 +1,2 @@
 {"task_id": "task-habilitar-deskops-y-pi-del-fork-en-scion", "run_id": "scion-pi-ready-20261110", "run_dir": "runs/subagents/20261110-scion-pi-fork", "session_sha256": null, "commit": null}
+{"task_id": "task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}

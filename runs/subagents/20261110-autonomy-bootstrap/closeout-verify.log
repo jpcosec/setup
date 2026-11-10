@@ -1,0 +1,144 @@
+{
+  "alerts": [],
+  "declared": [
+    "tests",
+    "commit",
+    "atom",
+    "materialization"
+  ],
+  "findings": [
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/Dockerfile"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/harness-config.yaml"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/launch.py"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/provision.py"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/scion-events.ts"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/start-desk.py"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/scion/README.md"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "pi/README.md"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "tests/test_scion_pi_runtime.py"
+    },
+    {
+      "code": "missing_changed_file_link",
+      "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+      "path": "tests/test_scion_autonomy.py"
+    }
+  ],
+  "found": [
+    "tests",
+    "commit"
+  ],
+  "gates": {
+    "atom_or_materialization_link": {
+      "evidence": [
+        "atom-doc:desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md"
+      ],
+      "findings": [
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/Dockerfile"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/harness-config.yaml"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/launch.py"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/provision.py"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/scion-events.ts"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/start-desk.py"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/scion/README.md"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "pi/README.md"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "tests/test_scion_pi_runtime.py"
+        },
+        {
+          "code": "missing_changed_file_link",
+          "message": "Changed file has no atom/materialization link and no routed follow-up reference.",
+          "path": "tests/test_scion_autonomy.py"
+        }
+      ],
+      "ok": false
+    },
+    "commit": {
+      "evidence": [
+        "18c0007"
+      ],
+      "findings": [],
+      "ok": true
+    },
+    "tests": {
+      "evidence": [
+        "tests/test_scion_autonomy.py",
+        "tests/test_scion_pi_runtime.py"
+      ],
+      "findings": [],
+      "ok": true
+    }
+  },
+  "implicit_code": false,
+  "ok": false,
+  "summary": "esta tarea declar\u00f3 tests, commit, atom|materialization; encontr\u00e9 tests, commit",
+  "task_id": "task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge"
+}

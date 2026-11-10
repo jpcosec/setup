@@ -1,0 +1,9 @@
+{
+  "key": "task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/preflight",
+  "state": "reviewed",
+  "input_sha256": "24480eb4c6a8c3543a804c3b1a8bab4572bac224a39a920679fe02dc99d29b3c",
+  "review_id": "review-task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge-preflight-1",
+  "review_path": "desk/reviews/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/preflight-1.md",
+  "run_dir": "runs/subagents/20261110-autonomy-bootstrap/context-review/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/preflight/24480eb4c6a8c3543a804c3b1a8bab4572bac224a39a920679fe02dc99d29b3c/attempt-1",
+  "technical_ok": true
+}

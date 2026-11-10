@@ -40,7 +40,7 @@ tar --exclude=__pycache__ --exclude='*.pyc' -cf - -C /mnt/ssd/proyectos/SLDB_1/d
 /mnt/ssd/proyectos/SLDB_1/.venv/bin/python -m pip wheel --no-deps \
   --wheel-dir "$ctx/wheels" "$ctx/python-src/sldb" "$ctx/python-src/deskops"
 cp "$(command -v uv)" "$ctx/uv"
-cp ~/setup/pi/scion/Dockerfile ~/setup/pi/scion/launch.py "$ctx/"
+cp ~/setup/pi/scion/Dockerfile ~/setup/pi/scion/launch.py ~/setup/pi/scion/scion-events.ts "$ctx/"
 docker build -t scion-pi-fork:e9ba9e2 "$ctx"
 ```
 
@@ -53,7 +53,7 @@ bundle="$HOME/scion-build/pi-fork-e9ba9e2/harness"
 mkdir -p "$bundle"
 git -C /mnt/ssd/proyectos/SLDB_1/scion-wt-pi-harness archive 7163525f9 harnesses/pi | tar -x --strip-components=2 -C "$bundle"
 cp ~/setup/pi/scion/harness-config.yaml "$bundle/config.yaml"
-sed -i 's/PI_VERSION = "0.73.1"/PI_VERSION = "0.67.3"/' "$bundle/provision.py"
+cp ~/setup/pi/scion/provision.py "$bundle/provision.py"
 printf 'FROM scion-pi-fork:e9ba9e2\nCMD ["pi"]\n' > "$bundle/Dockerfile"
 scion harness-config install --global --name pi "file://$bundle" --force
 ```
@@ -168,3 +168,94 @@ enviado por un mensaje posterior al arranque, sin repetir el encargo inicial.
 Los agentes de prueba quedaron detenidos; no se despachó ninguna tarea real.
 Veinte pruebas independientes validan launcher y redacción de secretos.
 La evidencia sanitizada está en `runs/subagents/20261110-scion-pi-fork/`.
+
+
+## Bootstrap explícito y eventos nativos
+
+Regla fuente: [átomo de autoridad de runtime y workflow](../../desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md).
+[start-desk.py](start-desk.py) prepara un worktree separado del desk, comprueba
+imports reales y materializa ejecutor, tester y coordinador mediante la API
+`deskops runtime template --context-file`. Requiere la implementación de esa
+interfaz y del modo `tester` en la fuente DeskOps probada. La raíz del fixture
+ya debe ser un repositorio Git con sus tareas, roles y rituales comprometidos.
+No se prepara ni despacha un desk de producción durante estas pruebas.
+
+Scion v0.2.21 resuelve la plantilla local desde el directorio de ejecución;
+`--project` elige el destino Hub. Por eso `--templates-dir` exige el layout
+`<config-del-proyecto>/.scion/templates` y sync, start y resume corren desde esa configuración,
+sin seleccionar una plantilla homónima de otro proyecto. Los errores muestran
+solo la etapa conocida y la clasificación de salida; omiten argumentos y salida
+del subproceso.
+
+El provider local del broker apunta al directorio externo de configuración
+Scion, fuera del repositorio Git. En su `settings.yaml`, `workspace_path`
+identifica el workspace compartido absoluto. El Hub deriva el montaje de esa
+configuración y puede descartar el `--workspace` de la petición; vincular el
+provider al checkout Git haría que Scion intentara crear otro worktree por agente.
+El worktree de tareas queda bajo la autoridad de DeskOps/bootstrap.
+
+Ejemplo de laboratorio autorizado (el directorio de plantillas pertenece al
+proyecto explícito; no copiarlo para otro proyecto):
+
+```bash
+/mnt/ssd/proyectos/SLDB_1/.venv/bin/python ~/setup/pi/scion/start-desk.py \
+  --root /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab-v2 \
+  --workspace-root /mnt/ssd/proyectos/SLDB_1 \
+  --source-root /mnt/ssd/proyectos/SLDB_1/deskops-runtime \
+  --sldb-root /mnt/ssd/proyectos/SLDB_1/sldb/src \
+  --ref HEAD --project d7d9d3cd-60a1-46be-9a63-b56722521061 --agent autonomy-lab-coordinator-v2 \
+  --templates-dir "$HOME/.scion/project-configs/scion-autonomy-lab__d7d9d3cd/.scion/templates"
+```
+
+`--ref` tiene el valor predeterminado `origin/main`; un arranque nuevo con ref
+inválido falla antes de crear un worktree o plantillas. La recuperación de una
+coordinadora propia usa su commit base registrado incluso si ese ref desapareció. No hay fallback a `HEAD`, reset del checkout
+original ni modificación de remotes. Se registra revisión del desk y fuente en
+`.tmp/scion-bootstrap/<identidad>/provenance.json`. El directorio adyacente tiene
+un marcador de propiedad y un worktree dedicado; uno desconocido se rechaza.
+Los commits propios pueden avanzar desde el commit base registrado. Una
+coordinadora existente solo se reconcilia con nombre, proyecto, etiquetas y
+provenance coincidentes; al recuperarla se conservan también los archivos
+sucios de hijos en curso. No se crea otro worktree ni se sigue un ref movido. Se comparan fingerprints
+SHA-256 del contenido de `deskops/` y `sldb_root/sldb` (fuentes y datos, sin
+cachés ni bytecode); cambios sin commit también invalidan la recuperación.
+Cambios ajenos en desk/docs/evidencia o commits de solo documentación no la
+bloquean. Un lock nativo sobre el directorio original serializa invocaciones y
+la lista de agentes se vuelve a leer bajo ese lock.
+Sin esa identidad existente se exige un worktree limpio. Todos los paths del contexto deben ser absolutos dentro del workspace.
+`source_root` contiene el paquete `deskops`; `sldb_root` es directamente `src`,
+no la raíz del checkout SLDB. `PYTHONPATH` enlaza ambos, y se verifican los
+`__file__` importados antes del arranque.
+
+El generador materializa `DESKOPS_DESK_ROOT`, `DESKOPS_SOURCE_ROOT`,
+`DESKOPS_SLDB_SOURCE_ROOT`, `DESKOPS_WORKSPACE_ROOT`, `DESKOPS_SCION_PROJECT`,
+`PYTHONPATH` y un volumen soportado de workspace a su misma ruta absoluta.
+Scion monta además el workspace en `/workspace`; no se crean symlinks manuales.
+Bootstrap usa la autenticación existente del CLI contra el Hub explícito
+(`--hub`, predeterminado `http://127.0.0.1:8080`). Los hijos usan sus tokens
+Scion y el secreto DeepSeek del proyecto; `secrets.env` nunca se monta.
+El metadata server existente de `sciontool` sigue refrescando los tokens.
+
+Tras sincronizar las tres plantillas, bootstrap reconcilia el nombre y etiquetas
+de la coordinadora. Una identidad ajena, duplicada o en error exige resolución
+operativa; una activa no recibe otro prompt, y una detenida se reanuda. El primer
+arranque recibe una sola asignación operativa. Un archivo `--config` propio del
+bootstrap activa `DESKOPS_AUTONOMOUS=1` únicamente para la coordinadora, sin
+editar las plantillas generadas. En esa modalidad el launcher añade una
+instrucción de recuperación al reanudar la sesión fija; conserva el historial y
+suprime la asignación inicial. Las sesiones manuales conservan su comportamiento.
+Scion y DeskOps siguen siendo las únicas autoridades de runtime y lifecycle.
+
+[scion-events.ts](scion-events.ts) carga explícitamente desde el launcher.
+`session_start`, `input`, `agent_start`, `agent_end` y los dos eventos de ejecución
+de tools se traducen al dialecto Claude ya soportado por `sciontool hook`.
+`agent_end` se traduce a `Stop` (working), nunca `task_completed`. Las nuevas
+entradas y sesiones limpian waiting mediante el handler existente, mientras
+sus reglas conservan estados deliberados de blocked/completed durante wrap-up.
+Solo se envían nombres de evento y nombres/identificadores acotados de tool;
+ningún prompt, argumento, resultado, transcript ni diagnóstico del hijo sale
+por ese canal. Cada llamada usa stdin y un timeout de cinco segundos. Un fallo
+emite un aviso fijo sin datos del proceso. `--no-extensions` y `-ne` excluyen el
+puente también en procesos baratos de revisión.
+
+Las pruebas de `tests/test_scion_autonomy.py` verifican los contratos con repositorios temporales y comandos simulados. La integración real quedó registrada en `runs/subagents/20261110-autonomy-bootstrap/acceptance-v2.json`: dos tareas cerradas, dos fases, cero mensajes de seguimiento, recuperación de la coordinadora y tester independiente nuevo después de un fallo real. Las seis sesiones Pi son distintas y no hubo hijos duplicados. La validación final independiente pasó con los tests originales intactos. El probe de lifecycle y renovación real del token tiene evidencia separada en el mismo directorio; no se afirma una ejecución de diez horas.

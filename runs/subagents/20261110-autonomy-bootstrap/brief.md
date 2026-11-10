@@ -1,0 +1,1 @@
+One executor task: setup runtime bootstrap and event bridge. Parent owns real Scion validation/build/install and closeout. Preserve Pi fork/Scion versions, secrets, sessions, dirty work/other agents. Implement only task files; record evidence and hand off.

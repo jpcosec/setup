@@ -1,0 +1,9 @@
+{
+  "key": "task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/bundle",
+  "state": "reviewed",
+  "input_sha256": "e4ec3da4a25d8049f7de20e338b9f0165650313af2845c8074070e11ee932380",
+  "review_id": "review-task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge-bundle-1",
+  "review_path": "desk/reviews/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/bundle-1.md",
+  "run_dir": "runs/subagents/20261110-autonomy-bootstrap/context-review/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge/bundle/e4ec3da4a25d8049f7de20e338b9f0165650313af2845c8074070e11ee932380/attempt-1",
+  "technical_ok": true
+}

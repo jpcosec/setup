@@ -6,6 +6,14 @@ from pathlib import Path
 import sys
 
 
+BRIDGE = Path("/usr/local/lib/scion-pi/scion-events.ts")
+RECOVERY_PROMPT = ("Resume autonomous desk coordination from durable DeskOps state. "
+                   "Reconcile existing Scion children before dispatch; inspect their evidence, "
+                   "continue independent testing and declared closeout gates. "
+                   "Do not replay the initial task or create duplicate children. "
+                   "If the phase is complete or a real blocker remains, report it through sciontool.")
+
+
 VALUE_FLAGS = {
     "--provider", "--model", "--tools", "-t", "--thinking", "--models",
     "--system-prompt", "--append-system-prompt", "--extension", "-e",
@@ -59,6 +67,12 @@ def main():
         if Path(header.get("cwd", "")).resolve() != Path.cwd():
             raise ValueError("Pi session workspace changed; refusing implicit migration")
         args = options_only(args)
+        if os.environ.get("DESKOPS_AUTONOMOUS") == "1":
+            args.append(RECOVERY_PROMPT)
+    # Explicit loading avoids discovery in cheap --no-extensions review processes.
+    if "--no-extensions" not in args and "-ne" not in args and BRIDGE.is_file():
+        if str(BRIDGE) not in args:
+            args = ["--extension", str(BRIDGE), *args]
     os.environ["PI_OFFLINE"] = "1"
     os.environ["PI_SKIP_VERSION_CHECK"] = "1"
     os.execvp("pi", ["pi", "--offline", "--session", str(session), *args])

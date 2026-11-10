@@ -1,0 +1,22 @@
+{
+  "initial": "waiting_for_input",
+  "transitions": [
+    {
+      "activity": "waiting_for_input",
+      "timestamp": 1794322537.1713505
+    },
+    {
+      "activity": "thinking",
+      "timestamp": 1794322540.426733
+    },
+    {
+      "activity": "executing",
+      "timestamp": 1794322542.0842159
+    },
+    {
+      "activity": "completed",
+      "timestamp": 1794322545.3069189
+    }
+  ],
+  "completed_sticky_after_agent_end": true
+}

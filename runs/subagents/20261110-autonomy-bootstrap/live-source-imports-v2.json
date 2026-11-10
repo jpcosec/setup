@@ -1,0 +1,9 @@
+{
+  "agent": "autonomy-lab-coordinator-v2",
+  "agent_id": "f542ceac-a624-4150-a22a-e6c56baf1277",
+  "deskops_import": "/mnt/ssd/proyectos/SLDB_1/deskops-wt-scion-autonomy/deskops/__init__.py",
+  "sldb_import": "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py",
+  "desk_root": "/mnt/ssd/proyectos/SLDB_1/.tmp/scion-bootstrap/fd6efbfbdd62cb5c/desk",
+  "method": "Actual docker exec Python imports and filtered Config.Env; no credential values displayed.",
+  "initial_v1_rejected": "Baked wheel imports and absent runtime context proved host start selected the same-named umbrella template. Stopped before any executor; preserved failed history. Fresh v2 uses correct source after fixing start/resume cwd."
+}

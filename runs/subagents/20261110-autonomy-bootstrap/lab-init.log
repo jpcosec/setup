@@ -1,0 +1,84 @@
+Warning: /home/robocop/.sldb already links 'deskops' to /home/robocop/deskops-review/deskops/.sldb, not to /mnt/ssd/proyectos/SLDB_1/deskops-wt-scion-autonomy/.sldb.
+Skipping model registration in /home/robocop/.sldb: 'deskops' is linked elsewhere.
+Global deskops model registry is ready.
+Initializing local store at /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Linked /mnt/ssd/proyectos/SLDB_1/deskops-wt-scion-autonomy/.sldb as deskops in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb.
+Inheriting CrossroadDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting AtomDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting BoardDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting DeskFAQDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting InboxNoteDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting MaterializationContractDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting PillDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting ProtoAtomDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting RepositoryDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting ReviewDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting RitualDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting RoleDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting RunDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting RuntimeProfileDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting StepDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskAggregateDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskCodeDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskDebugDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskDecisionDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskDocsDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskExternalDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Inheriting TaskRefactorDoc in /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/.sldb...
+Scaffolded desk at /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk.
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/tasks
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/contexts
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/rituals
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/atoms
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/roles
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/inbox
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/reviews
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/drawer
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/runtimes
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/materializations
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/steps
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/registry
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/faq
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/config.json
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/tasks/Board.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/contexts/pills.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/rituals/phase.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/rituals/execution.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/rituals/testing.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/rituals/closeout.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/drawer/README.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/atoms/tag-namespaces.yaml
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/runtimes/runtime-pi-deepseek-flash.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/type-task_activates.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/type-task_hands_to_closeout.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/type-task_completes.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/execution-task_activates.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/testing-task_hands_to_closeout.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/closeout-task_completes.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-code.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-docs.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-debug.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-refactor.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-decision.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-aggregate.md
+Wrote /mnt/ssd/proyectos/SLDB_1/.tmp/scion-autonomy-lab/desk/lifecycle/rule-activation-task-external.md
+Lifecycle graph: tracked desk/lifecycle/type-task_activates.md
+Lifecycle graph: tracked desk/lifecycle/type-task_completes.md
+Lifecycle graph: tracked desk/lifecycle/type-task_hands_to_closeout.md
+Lifecycle graph: tracked desk/lifecycle/execution-task_activates.md
+Lifecycle graph: tracked desk/lifecycle/testing-task_hands_to_closeout.md
+Lifecycle graph: tracked desk/lifecycle/closeout-task_completes.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-aggregate.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-code.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-debug.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-decision.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-docs.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-external.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-refactor.md
+Lifecycle graph: tracked desk/tasks/Board.md as BoardDoc
+Lifecycle graph: tracked desk/rituals/phase.md as RitualDoc
+Lifecycle graph: tracked desk/rituals/execution.md as RitualDoc:ritual-execution
+Lifecycle graph: tracked desk/rituals/testing.md as RitualDoc:ritual-testing
+Lifecycle graph: tracked desk/rituals/closeout.md as RitualDoc:ritual-closeout
+Initialization complete.

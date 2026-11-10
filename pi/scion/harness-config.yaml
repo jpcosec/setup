@@ -30,7 +30,7 @@ provisioner:
     - pi
 config_dir: .pi/agent
 interrupt_key: C-c
-# pi has no hook surface scion can listen to, so readiness is a fixed settle.
+# Native lifecycle events are delivered by the explicit launcher extension.
 # pi reads AGENTS.md (cwd and parents, plus ~/.pi/agent/AGENTS.md).
 instructions_file: AGENTS.md
 system_prompt_file: AGENTS.md
@@ -51,11 +51,11 @@ command:
   task_position: after_base_args
 capabilities:
   limits:
-    max_turns: { support: "no", reason: "pi emits no hook events scion can count turns from" }
+    max_turns: { support: "no", reason: "native event bridge does not enforce turn limits" }
     max_model_calls: { support: "no", reason: "pi emits no model-start/model-end hook events" }
     max_duration: { support: "yes" }
   telemetry:
-    enabled: { support: "no", reason: "pi has no hook or OTel bridge wired for scion" }
+    enabled: { support: "no", reason: "lifecycle/status hooks only; no OTel instrumentation" }
     native_emitter: { support: "no", reason: "pi has no native OTel emitter" }
   prompts:
     system_prompt: { support: "partial", reason: "System prompt is downgraded into AGENTS.md" }

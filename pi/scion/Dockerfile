@@ -28,10 +28,10 @@ COPY uv /usr/local/bin/uv
 COPY wheels/ /opt/setup-wheels/
 ENV UV_PYTHON_INSTALL_DIR=/opt/python
 RUN uv venv --python 3.12 /opt/deskops-tools \
- && uv pip install --python /opt/deskops-tools/bin/python /opt/setup-wheels/*.whl \
+ && uv pip install --python /opt/deskops-tools/bin/python /opt/setup-wheels/*.whl pytest==9.2.0 \
  && chmod -R a+rX /opt/python /opt/deskops-tools
 ENV PATH="/opt/deskops-tools/bin:${PATH}"
-COPY launch.py /usr/local/lib/scion-pi/launch.py
+COPY launch.py scion-events.ts /usr/local/lib/scion-pi/
 RUN deskops --help >/dev/null && sldb --help >/dev/null
 WORKDIR /workspace
 CMD ["pi"]

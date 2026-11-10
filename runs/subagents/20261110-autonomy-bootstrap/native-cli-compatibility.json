@@ -1,0 +1,18 @@
+{
+  "image": "scion-pi-autonomy:e9ba9e2",
+  "actual_start_help_exit": 0,
+  "actual_start_flags": {
+    "--harness-auth": true,
+    "--label": true,
+    "--workspace": true,
+    "--type": true,
+    "--project": true,
+    "--non-interactive": true
+  },
+  "actual_status_help_exit": 0,
+  "actual_status_types": {
+    "blocked": true,
+    "task_completed": true
+  },
+  "method": "Real candidate Docker CLI --help, no agents, auth or network mutation."
+}

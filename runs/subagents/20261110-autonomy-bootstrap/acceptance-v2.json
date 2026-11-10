@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "data_root": "/mnt/ssd/proyectos/SLDB_1/.tmp/scion-bootstrap/fd6efbfbdd62cb5c/desk",
+  "closing_commits": {
+    "greet": "b168956590ffd173b4761b4f8a556e0ac2b39dc4",
+    "farewell": "46931acf27ab5b385a654ace9d6b9bf2559682e3"
+  },
+  "phase_commits": [
+    "c04ce9818343a00dd09ce43a92b94a5fca652b5d",
+    "33a4563d705c97c92428db2b3b234c6a480104d4"
+  ],
+  "code_in_each_closeout": true,
+  "implementation_and_store_clean": true,
+  "tests_and_validator_unchanged": true,
+  "failed_tester_exit": 23,
+  "fresh_tester_exit": 0,
+  "independent_final_validation": "2 passed",
+  "unique_pi_sessions": [
+    {
+      "agent": "autonomy-lab-coordinator-v2",
+      "session_id": "01a1c64a-3a51-76bb-b26f-fbd93ce3819a",
+      "cwd": "/workspace",
+      "sha256": "a75aa7987f495137ce6472b5e073729e86c09bae133fab2dfccd367a7ab2c457"
+    },
+    {
+      "agent": "deskops-e-78b3ad5d7da4",
+      "session_id": "01a1c654-20f7-7611-93b4-7860d643e23c",
+      "cwd": "/workspace",
+      "sha256": "b6262b155bbf80d635fe5944fba3412da16a3357a1a3d38089a8dc52c9e962b2"
+    },
+    {
+      "agent": "deskops-t-838f9259ce4e",
+      "session_id": "01a1c657-4e1c-77e5-8730-285b922f4eb9",
+      "cwd": "/workspace",
+      "sha256": "e6bf554ccafc45cc54b60017c4f1b7704cb7d8e9aaeeb38ddaeaef450445b736"
+    },
+    {
+      "agent": "deskops-t-838f9259ce4e-a2",
+      "session_id": "01a1c659-c909-7199-a817-aae67de20c4c",
+      "cwd": "/workspace",
+      "sha256": "6fd00cddf71c7c849a5f020455f2301160a13624e57eaa308c866066c9fcd5ee"
+    },
+    {
+      "agent": "deskops-e-536127d23928",
+      "session_id": "01a1c664-ee2e-74fb-8e48-9a218f4de814",
+      "cwd": "/workspace",
+      "sha256": "4df25572fee4ed340da89f37b1125367505d375af205d433387cbed296e993bc"
+    },
+    {
+      "agent": "deskops-t-6d2232c10119",
+      "session_id": "01a1c667-4bb1-7781-a601-477f61a439b6",
+      "cwd": "/workspace",
+      "sha256": "39372e1c4c81cdf8b761844ba281c5863a0e36e1dcbb83d2edf40e5701cda0a0"
+    }
+  ],
+  "intermediate_parent_task_prompts": 0,
+  "fault_stop_resume": "16:39:26-16:39:31 UTC; same coordinator and executor identities; live-lab-events.jsonl",
+  "bundle": "autonomy-lab-v2.bundle; complete verified history"
+}

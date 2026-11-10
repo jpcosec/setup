@@ -1,0 +1,10 @@
+Board: board-001
+Title: setup Board
+status: 
+summary: 
+scope: desk
+purpose: 
+tasks: desk/tasks/task-centralizar-configuraciones-personales-en-setup.md, desk/tasks/task-scion-autonomy-runtime-bootstrap-and-pi-lifecycle-bridge.md
+pills: desk/contexts/pills.md
+rituals: desk/rituals/execution.md, desk/rituals/testing.md, desk/rituals/closeout.md
+notes: 
