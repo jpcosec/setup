@@ -7,10 +7,20 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- a54a9c6
+- tests/test_scion_pi_runtime.py
+- desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md
 depends_on: []
 pills: []
-files: []
+files:
+- pi/scion/launch.py
+- pi/scion/harness-config.yaml
+- pi/scion/Dockerfile.runtime
+- pi/scion/README.md
+- pi/scion/sync-claude-secret.py
+- tests/test_scion_pi_runtime.py
+- desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false

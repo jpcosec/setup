@@ -1,0 +1,9 @@
+{
+  "settings_provider": "deepseek",
+  "settings_model": "deepseek-flash",
+  "deepseek_environment_present": true,
+  "models_json_contains_deepseek": true,
+  "ui_error": "No API key found for openrouter",
+  "unexpected_ui_model": "mistralai/voxtral-small-24b-2507",
+  "followup_marker_written": false
+}

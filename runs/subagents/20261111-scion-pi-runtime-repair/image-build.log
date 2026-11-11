@@ -1,0 +1,28 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.runtime
+#1 transferring dockerfile: 240B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/scion-pi-autonomy:e9ba9e2
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 5.07kB done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/library/scion-pi-autonomy:e9ba9e2
+#5 CACHED
+
+#6 [2/2] COPY launch.py scion-events.ts /usr/local/lib/scion-pi/
+#6 DONE 0.1s
+
+#7 exporting to image
+#7 exporting layers 0.0s done
+#7 writing image sha256:1f5f1f53358b195e7b5f374263e2fca3756d47f63eeae9004f6cde7141ca96fb done
+#7 naming to local.scion/pi-autonomy:e9ba9e2-r1 done
+#7 DONE 0.1s

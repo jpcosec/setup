@@ -65,6 +65,64 @@ suprime la repetición del encargo inicial. Rechaza una sesión inválida o de o
 workspace. `--offline` desactiva consultas de arranque y avisos de actualización;
 las llamadas de Pi a DeepSeek siguen funcionando.
 
+El launcher también traduce el `--model small` que Scion vuelve a inyectar al
+reanudar. Ese valor es un alias de Scion; Pi lo interpreta como una búsqueda
+difusa y puede seleccionar un proveedor distinto. Se usa el par
+`defaultProvider/defaultModel` ya resuelto por `provision.py`. Los modelos
+explícitos distintos del valor de `SCION_MODEL` se conservan; una resolución
+ausente o incompleta falla antes de iniciar Pi.
+
+La imagen corregida usa un nombre local calificado para que `image_registry`
+no lo reescriba hacia un registro remoto. Se construye sin actualizar el fork,
+Scion ni dependencias:
+
+```bash
+docker build --pull=false -f ~/setup/pi/scion/Dockerfile.runtime \
+  -t local.scion/pi-autonomy:e9ba9e2-r2 ~/setup/pi/scion
+```
+
+Los harnesses `pi` y `pi-autonomy` usan esa imagen. Un contenedor detenido sigue
+usando su imagen original al reanudar, aunque el CLI acepte `--image`: verificar
+el ID real del contenedor antes de declarar desplegada una corrección. No borrar
+el home del agente, que contiene su sesión. Las pruebas de reparación usan un
+agente nuevo con la imagen corregida y luego reanudan ese mismo agente.
+
+Instalar primero la copia local y luego publicarla al Hub; el modo Hub de
+`install` no actualiza la copia local. A partir de un bundle del harness que
+contenga `harness-config.yaml` como `config.yaml` y el provisioner vigente:
+
+```bash
+for name in pi pi-autonomy; do
+  scion --no-hub --global harness-config install --name "$name" "file://$bundle" --force
+  SCION_HUB_ENABLED=true scion --hub http://127.0.0.1:8080 --global harness-config sync "$name"
+done
+```
+
+Una configuración de proyecto tiene precedencia sobre la global. Para actualizar
+una existente, usar `harness-config install` en modo Hub con `--project` apuntando
+a su directorio real de configuración, no solo al UUID: en esta versión `sync`
+publica globalmente. Comprobar por API `scopeId` e imagen después de publicar.
+Copiar assets a un contenedor detenido no basta: Scion puede recrearlo con la
+imagen guardada en su metadata. Para los agentes anteriores, esta reparación
+conserva las imágenes originales en tags `local.scion/archive-pi-*` y hace que
+los tags de compatibilidad `scion-pi-fork:e9ba9e2` y
+`scion-pi-autonomy:e9ba9e2` resuelvan a la imagen corregida. Se registra cada ID
+anterior y su tag de rollback. El home y la sesión no se borran; la migración se
+prueba con un agente anterior del laboratorio. El coordinador de producción
+permanece detenido.
+
+Para que Claude use el login vigente del host por el mecanismo nativo de secretos:
+
+```bash
+python3 ~/setup/pi/scion/sync-claude-secret.py
+```
+
+El helper publica `CLAUDE_AUTH` como secreto de archivo del usuario en el Hub
+local. `--project-id` permite limitarlo a un proyecto. Solo pasa la ruta del
+archivo al CLI de Scion; los tokens no aparecen en argv, salida ni Git. Repetir
+la sincronización cuando se renueve el login del host. Esto no instala ni
+actualiza Claude.
+
 ## Publicar el harness Pi
 
 La imagen local instalada es `scion-pi-fork:e9ba9e2`, con etiquetas de fork y

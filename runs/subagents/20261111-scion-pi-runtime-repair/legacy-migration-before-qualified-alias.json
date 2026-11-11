@@ -1,0 +1,44 @@
+{
+  "before": {
+    "available": true,
+    "id": "01a1caba-d002-7429-9443-69703265ecdb",
+    "models": [
+      {
+        "provider": "deepseek",
+        "modelId": "deepseek-flash"
+      }
+    ]
+  },
+  "resume": {
+    "exit": 0,
+    "stdout": "Resuming agent 'hc-1111-pi-autonomy-r2'...\n",
+    "stderr": "\n\u001b[1m\u001b[93m WARNING: Development authentication enabled - not for production use \u001b[0m\n\nUsing hub: http://127.0.0.1:8080\nUsing default broker server\nUsing local workspace on broker.\nAgent 'hc-1111-pi-autonomy-r2' resumed via Hub.\nAgent Slug: hc-1111-pi-autonomy-r2\nPhase: running\n"
+  },
+  "message": {
+    "exit": 0,
+    "stdout": "Sending message to agent 'hc-1111-pi-autonomy-r2'...\nMessage delivered to agent 'hc-1111-pi-autonomy-r2'.\n",
+    "stderr": "\n\u001b[1m\u001b[93m WARNING: Development authentication enabled - not for production use \u001b[0m\n\nUsing hub: http://127.0.0.1:8080\n"
+  },
+  "validation": {
+    "exit": 0,
+    "stderr": "test_clean (test_solution.TestTags.test_clean) ... ok\ntest_empty (test_solution.TestTags.test_empty) ... ok\ntest_unicode (test_solution.TestTags.test_unicode) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+  },
+  "marker_written": false,
+  "after": {
+    "available": true,
+    "id": "01a1caba-d002-7429-9443-69703265ecdb",
+    "models": [
+      {
+        "provider": "deepseek",
+        "modelId": "deepseek-flash"
+      }
+    ]
+  },
+  "same_session": true,
+  "passed": false,
+  "stop": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": "\n\u001b[1m\u001b[93m WARNING: Development authentication enabled - not for production use \u001b[0m\n\nUsing hub: http://127.0.0.1:8080\nStopping agent 'hc-1111-pi-autonomy-r2'...\nAgent 'hc-1111-pi-autonomy-r2' stopped via Hub.\n"
+  }
+}

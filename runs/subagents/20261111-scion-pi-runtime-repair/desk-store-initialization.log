@@ -1,0 +1,99 @@
+Desk divergence report:
+- Missing store: .sldb
+- Lifecycle documents to rewrite: desk/lifecycle/execution-task_activates.md, desk/lifecycle/testing-task_hands_to_closeout.md, desk/lifecycle/closeout-task_completes.md
+- Unregistered models: CrossroadDoc, AtomDoc, BoardDoc, DeskFAQDoc, InboxNoteDoc, MaterializationContractDoc, PillDoc, ProtoAtomDoc, RepositoryDoc, ReviewDoc, RitualDoc, RoleDoc, RunDoc, RuntimeProfileDoc, StepDoc, TaskAggregateDoc, TaskCodeDoc, TaskDebugDoc, TaskDecisionDoc, TaskDoc, TaskDocsDoc, TaskExternalDoc, TaskRefactorDoc
+- Untracked desk documents: desk/lifecycle/type-task_activates.md, desk/lifecycle/type-task_completes.md, desk/lifecycle/type-task_hands_to_closeout.md, desk/lifecycle/execution-task_activates.md, desk/lifecycle/testing-task_hands_to_closeout.md, desk/lifecycle/closeout-task_completes.md, desk/lifecycle/rule-activation-task-aggregate.md, desk/lifecycle/rule-activation-task-code.md, desk/lifecycle/rule-activation-task-debug.md, desk/lifecycle/rule-activation-task-decision.md, desk/lifecycle/rule-activation-task-docs.md, desk/lifecycle/rule-activation-task-external.md, desk/lifecycle/rule-activation-task-refactor.md, desk/tasks/Board.md, desk/rituals/phase.md, desk/rituals/execution.md, desk/rituals/testing.md, desk/rituals/closeout.md, desk/atoms/atom-any-repo-can-declare-structured-doc-models.md, desk/atoms/atom-model-ref-resolves-via-pythonpath-not-packaging.md, desk/atoms/atom-models-live-where-their-content-lives.md, desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md, desk/registry/README.md, desk/registry/repo-antonia-agentskbs.md, desk/registry/repo-antonia-aws-infra.md, desk/registry/repo-antonia-gian-repo.md, desk/registry/repo-antonia-mepu-ocs-dev.md, desk/registry/repo-antonia-mepu-ocs.md, desk/registry/repo-antonia.md, desk/registry/repo-gemini-test.md, desk/registry/repo-hum-ecosystem.md, desk/registry/repo-humble.md, desk/registry/repo-kimun.md, desk/registry/repo-legos.md, desk/registry/repo-matrix-shrdlu-spec.md, desk/registry/repo-matrix.md, desk/registry/repo-mepu.md, desk/registry/repo-pron-plnr.md, desk/registry/repo-pron.md, desk/registry/repo-setup.md, desk/registry/repo-traderbot.md
+- Pending task type migration: 1 task(s)
+
+Applying repairs...
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-code.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-docs.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-debug.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-refactor.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-decision.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-aggregate.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-task-external.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-alert-implicit-code.md
+Lifecycle graph: wrote desk/lifecycle/rule-closeout-alert-pill-graduation.md
+Lifecycle graph: rewrote desk/lifecycle/execution-task_activates.md
+Lifecycle graph: rewrote desk/lifecycle/testing-task_hands_to_closeout.md
+Lifecycle graph: rewrote desk/lifecycle/closeout-task_completes.md
+Initializing local store at /home/robocop/setup/.sldb...
+Linked /mnt/ssd/proyectos/SLDB_1/deskops-runtime/.sldb as deskops in /home/robocop/setup/.sldb.
+Inheriting CrossroadDoc in /home/robocop/setup/.sldb...
+Inheriting AtomDoc in /home/robocop/setup/.sldb...
+Inheriting BoardDoc in /home/robocop/setup/.sldb...
+Inheriting DeskFAQDoc in /home/robocop/setup/.sldb...
+Inheriting InboxNoteDoc in /home/robocop/setup/.sldb...
+Inheriting MaterializationContractDoc in /home/robocop/setup/.sldb...
+Inheriting PillDoc in /home/robocop/setup/.sldb...
+Inheriting ProtoAtomDoc in /home/robocop/setup/.sldb...
+Inheriting RepositoryDoc in /home/robocop/setup/.sldb...
+Inheriting ReviewDoc in /home/robocop/setup/.sldb...
+Inheriting RitualDoc in /home/robocop/setup/.sldb...
+Inheriting RoleDoc in /home/robocop/setup/.sldb...
+Inheriting RunDoc in /home/robocop/setup/.sldb...
+Inheriting RuntimeProfileDoc in /home/robocop/setup/.sldb...
+Inheriting StepDoc in /home/robocop/setup/.sldb...
+Inheriting TaskAggregateDoc in /home/robocop/setup/.sldb...
+Inheriting TaskCodeDoc in /home/robocop/setup/.sldb...
+Inheriting TaskDebugDoc in /home/robocop/setup/.sldb...
+Inheriting TaskDecisionDoc in /home/robocop/setup/.sldb...
+Inheriting TaskDoc in /home/robocop/setup/.sldb...
+Inheriting TaskDocsDoc in /home/robocop/setup/.sldb...
+Inheriting TaskExternalDoc in /home/robocop/setup/.sldb...
+Inheriting TaskRefactorDoc in /home/robocop/setup/.sldb...
+Registered missing models and converted copied deskops models.
+- migrated desk/tasks/task-centralizar-configuraciones-personales-en-setup.md: task_type 'design' -> 'task.docs' (tracked as TaskDocsDoc)
+- migrated desk/tasks/task-limpieza-de-worktrees-sobrantes-y-paso-de-limpieza-en-el-cierre.md: task_type 'task.code' -> 'task.code' (tracked as TaskCodeDoc)
+- migrated desk/tasks/task-scion-pi-resume-and-runtime-binding.md: task_type 'task.code' -> 'task.code' (tracked as TaskCodeDoc)
+Lifecycle graph: tracked desk/lifecycle/type-task_activates.md
+Lifecycle graph: tracked desk/lifecycle/type-task_completes.md
+Lifecycle graph: tracked desk/lifecycle/type-task_hands_to_closeout.md
+Lifecycle graph: tracked desk/lifecycle/execution-task_activates.md
+Lifecycle graph: tracked desk/lifecycle/testing-task_hands_to_closeout.md
+Lifecycle graph: tracked desk/lifecycle/closeout-task_completes.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-aggregate.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-code.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-debug.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-decision.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-docs.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-external.md
+Lifecycle graph: tracked desk/lifecycle/rule-activation-task-refactor.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-alert-implicit-code.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-alert-pill-graduation.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-aggregate.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-code.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-debug.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-decision.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-docs.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-external.md
+Lifecycle graph: tracked desk/lifecycle/rule-closeout-task-refactor.md
+Tracked desk/tasks/Board.md as BoardDoc.
+Tracked desk/rituals/phase.md as RitualDoc.
+Lifecycle graph: tracked desk/rituals/execution.md as RitualDoc:ritual-execution
+Lifecycle graph: tracked desk/rituals/testing.md as RitualDoc:ritual-testing
+Lifecycle graph: tracked desk/rituals/closeout.md as RitualDoc:ritual-closeout
+Tracked desk/atoms/atom-any-repo-can-declare-structured-doc-models.md as AtomDoc.
+Tracked desk/atoms/atom-model-ref-resolves-via-pythonpath-not-packaging.md as AtomDoc.
+Tracked desk/atoms/atom-models-live-where-their-content-lives.md as AtomDoc.
+Tracked desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md as AtomDoc.
+Tracked desk/registry/README.md as RepositoryDoc.
+Tracked desk/registry/repo-antonia-agentskbs.md as RepositoryDoc.
+Tracked desk/registry/repo-antonia-aws-infra.md as RepositoryDoc.
+Tracked desk/registry/repo-antonia-gian-repo.md as RepositoryDoc.
+Tracked desk/registry/repo-antonia-mepu-ocs-dev.md as RepositoryDoc.
+Tracked desk/registry/repo-antonia-mepu-ocs.md as RepositoryDoc.
+Tracked desk/registry/repo-antonia.md as RepositoryDoc.
+Tracked desk/registry/repo-gemini-test.md as RepositoryDoc.
+Tracked desk/registry/repo-hum-ecosystem.md as RepositoryDoc.
+Tracked desk/registry/repo-humble.md as RepositoryDoc.
+Tracked desk/registry/repo-kimun.md as RepositoryDoc.
+Tracked desk/registry/repo-legos.md as RepositoryDoc.
+Tracked desk/registry/repo-matrix-shrdlu-spec.md as RepositoryDoc.
+Tracked desk/registry/repo-matrix.md as RepositoryDoc.
+Tracked desk/registry/repo-mepu.md as RepositoryDoc.
+Tracked desk/registry/repo-pron-plnr.md as RepositoryDoc.
+Tracked desk/registry/repo-pron.md as RepositoryDoc.
+Tracked desk/registry/repo-setup.md as RepositoryDoc.
+Tracked desk/registry/repo-traderbot.md as RepositoryDoc.

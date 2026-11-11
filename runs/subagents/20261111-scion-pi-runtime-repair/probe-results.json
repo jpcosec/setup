@@ -1,0 +1,129 @@
+[
+  {
+    "harness": "antigravity",
+    "image": "scion-antigravity:latest",
+    "started_at": "2026-11-11T13:06:40.129848+00:00",
+    "status": "blocked_missing_image",
+    "image_check": {
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such image: scion-antigravity:latest\n"
+    }
+  },
+  {
+    "harness": "claude",
+    "image": "scion-claude:latest",
+    "started_at": "2026-11-11T13:06:40.260289+00:00",
+    "image_id": "sha256:e227a407d88fbd4588bee4ce6c8c127360a966b49cbb8a5942a786b5331afb7b",
+    "agent": "hc-1111-claude",
+    "launch": {
+      "exit": 0,
+      "stdout": "Starting agent 'hc-1111-claude'...\n",
+      "stderr": "\n WARNING: Development authentication enabled - not for production use \n\nUsing hub: http://127.0.0.1:8080\nUsing default broker Hosted Broker\nUsing local workspace on broker.\nAgent 'hc-1111-claude' started via Hub.\nAgent Slug: hc-1111-claude\nPhase: running\n"
+    },
+    "state": {
+      "id": "5a08faec-6d7b-4160-8fc6-cdc4167623c3",
+      "phase": "stopped",
+      "activity": null,
+      "harnessConfig": "claude"
+    },
+    "independent_validation": {
+      "exit": 1,
+      "stdout": "",
+      "stderr": "test_clean (test_solution.TestTags.test_clean) ... ERROR\ntest_empty (test_solution.TestTags.test_empty) ... ERROR\ntest_unicode (test_solution.TestTags.test_unicode) ... ERROR\n\n======================================================================\nERROR: test_clean (test_solution.TestTags.test_clean)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/mnt/ssd/proyectos/SLDB_1/.tmp/harness-validation-20261111/claude/test_solution.py\", line 4, in test_clean\n    def test_clean(self): self.assertEqual(normalize_tags([\"  Foo \",\"bar\",\"FOO\",\" \",\" Bar \",\"Baz\"]),[\"foo\",\"bar\",\"baz\"])\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/ssd/proyectos/SLDB_1/.tmp/harness-validation-20261111/claude/solution.py\", line 2, in normalize_tags\n    raise NotImplementedError\nNotImplementedError\n\n======================================================================\nERROR: test_empty (test_solution.TestTags.test_empty)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/mnt/ssd/proyectos/SLDB_1/.tmp/harness-validation-20261111/claude/test_solution.py\", line 5, in test_empty\n    def test_empty(self): self.assertEqual(normalize_tags([]),[])\n                                           ^^^^^^^^^^^^^^^^^^\n  File \"/mnt/ssd/proyectos/SLDB_1/.tmp/harness-validation-20261111/claude/solution.py\", line 2, in normalize_tags\n    raise NotImplementedError\nNotImplementedError\n\n======================================================================\nERROR: test_unicode (test_solution.TestTags.test_unicode)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/mnt/ssd/proyectos/SLDB_1/.tmp/harness-validation-20261111/claude/test_solution.py\", line 6, in test_unicode\n    def test_unicode(self): self.assertEqual(normalize_tags([\" \u00c1RBOL \",\"\u00e1rbol\",\"\u00d1\"]),[\"\u00e1rbol\",\"\u00f1\"])\n                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/ssd/proyectos/SLDB_1/.tmp/harness-validation-20261111/claude/solution.py\", line 2, in normalize_tags\n    raise NotImplementedError\nNotImplementedError\n\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nFAILED (errors=3)\n",
+      "original_tests_unchanged": true
+    },
+    "terminal": {
+      "exit": 0,
+      "stdout": "Error response from daemon: container 332239275fb45c7ac6a4090b91efc6929d79a5450ff69a4d07a4e156fe80310d is not running\n",
+      "stderr": "\n WARNING: Development authentication enabled - not for production use \n\nUsing hub: http://127.0.0.1:8080\n"
+    },
+    "stop": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": "\n WARNING: Development authentication enabled - not for production use \n\nUsing hub: http://127.0.0.1:8080\nStopping agent 'hc-1111-claude'...\nAgent 'hc-1111-claude' stopped via Hub.\n"
+    },
+    "status": "failed"
+  },
+  {
+    "harness": "codex",
+    "image": "scion-codex:latest",
+    "started_at": "2026-11-11T13:07:33.426521+00:00",
+    "status": "blocked_missing_image",
+    "image_check": {
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such image: scion-codex:latest\n"
+    }
+  },
+  {
+    "harness": "copilot",
+    "image": "scion-copilot:latest",
+    "started_at": "2026-11-11T13:07:33.557505+00:00",
+    "status": "blocked_missing_image",
+    "image_check": {
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such image: scion-copilot:latest\n"
+    }
+  },
+  {
+    "harness": "gemini-cli",
+    "image": "scion-gemini-cli:latest",
+    "started_at": "2026-11-11T13:07:33.688603+00:00",
+    "status": "blocked_missing_image",
+    "image_check": {
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such image: scion-gemini-cli:latest\n"
+    }
+  },
+  {
+    "harness": "hermes",
+    "image": "scion-hermes:latest",
+    "started_at": "2026-11-11T13:07:33.821899+00:00",
+    "status": "blocked_missing_image",
+    "image_check": {
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such image: scion-hermes:latest\n"
+    }
+  },
+  {
+    "harness": "opencode",
+    "image": "scion-opencode:latest",
+    "started_at": "2026-11-11T13:07:33.950033+00:00",
+    "status": "blocked_missing_image",
+    "image_check": {
+      "exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such image: scion-opencode:latest\n"
+    }
+  },
+  {
+    "harness": "pi",
+    "image": "scion-pi-fork:e9ba9e2",
+    "started_at": "2026-11-11T13:07:34.089186+00:00",
+    "image_id": "sha256:faf7c9f420bfccf5f582fe4e38b060f6319e99743db4e9ab2dc88e127cbcc734",
+    "agent": "hc-1111-pi",
+    "launch": {
+      "exit": 1,
+      "stdout": "Starting agent 'hc-1111-pi'...\n",
+      "stderr": "\n WARNING: Development authentication enabled - not for production use \n\nUsing hub: http://127.0.0.1:8080\n\nError: failed to start agent via Hub: runtime_error: Failed to dispatch to runtime broker: runtime broker returned error 500: {\"error\":{\"code\":\"runtime_error\",\"message\":\"Failed to create agent: failed to pull image 'ghcr.io/homebrew-scion/scion-pi-fork:e9ba9e2': exit status 1\"}}\n (status: 502)\n\nTo use local-only mode, run: scion hub disable\n\nUsage:\n  scion start <agent-name> [task...] [flags]\n\nAliases:\n  start, run\n\nFlags:\n  -a, --attach                  Attach to the agent TTY after starting\n  -b, --branch string           Git branch to use for the agent workspace\n      --broker string           Preferred runtime broker ID or name\n      --config string           Path to inline agent config file (YAML/JSON), or '-' for stdin\n      --disable-telemetry       Explicitly disable telemetry for this agent\n      --enable-telemetry        Explicitly enable telemetry for this agent\n      --harness string          Named harness configuration to use (alias for --harness-config)\n      --harness-auth string     Override auth method for the harness (api-key, oauth-token, auth-file, vertex-ai)\n      --harness-config string   Named harness configuration to use\n  -h, --help                    help for start\n  -i, --image string            Container image to use (overrides template)\n      --label stringArray       Label in key=value format (repeatable)\n      --model string            Model to use: alias (small, medium, large, extra-large/xl) or explicit model ID\n      --no-auth                 Disable authentication propagation\n      --no-notify               Do not subscribe to notifications for the spawned agent\n      --no-upload               Fail if template requires upload (never prompt)\n      --template-scope string   Scope for uploaded template (global, project, user) (default \"project\")\n      --thinking-level int      Thinking level (0-100) to inject into agent config (default -1)\n  -t, --type string             Template to use\n      --upload-template         Automatically upload local template to Hub if not found\n  -w, --workspace string        Host path or project-relative subdirectory to mount as /workspace\n\nGlobal Flags:\n      --cpuprofile string   Write cpu profile to file\n      --debug               Enable debug output (equivalent to SCION_DEBUG=1)\n      --format string       Output format (e.g., json)\n      --global              Use the global project (equivalent to --project global)\n      --hub string          Hub API endpoint URL (overrides SCION_HUB_ENDPOINT)\n      --memprofile string   Write memory profile to file\n      --no-hub              Disable Hub integration for this invocation (local-only mode)\n      --non-interactive     Non-interactive mode: implies --yes, errors on ambiguous prompts\n  -p, --profile string      Configuration profile to use\n  -g, --project string      Project identifier: path, slug (with Hub), or git URL (with Hub)\n      --stats Duration      Interval between printing stats, e.g. 500ms, 60s, 5m (0 to disable) (default 1m0s)\n  -y, --yes                 Skip confirmation prompt\n"
+    },
+    "status": "launch_failed"
+  },
+  {
+    "harness": "pi-autonomy",
+    "image": "scion-pi-autonomy:e9ba9e2",
+    "started_at": "2026-11-11T13:07:37.911585+00:00",
+    "image_id": "sha256:79bde468d5e32447be7ba39666429f69214755bc1a859e109c4009c1f579ffa1",
+    "agent": "hc-1111-pi-autonomy",
+    "launch": {
+      "exit": 1,
+      "stdout": "Starting agent 'hc-1111-pi-autonomy'...\n",
+      "stderr": "\n WARNING: Development authentication enabled - not for production use \n\nUsing hub: http://127.0.0.1:8080\n\nError: failed to start agent via Hub: runtime_error: Failed to dispatch to runtime broker: runtime broker returned error 500: {\"error\":{\"code\":\"runtime_error\",\"message\":\"Failed to create agent: failed to pull image 'ghcr.io/homebrew-scion/scion-pi-autonomy:e9ba9e2': exit status 1\"}}\n (status: 502)\n\nTo use local-only mode, run: scion hub disable\n\nUsage:\n  scion start <agent-name> [task...] [flags]\n\nAliases:\n  start, run\n\nFlags:\n  -a, --attach                  Attach to the agent TTY after starting\n  -b, --branch string           Git branch to use for the agent workspace\n      --broker string           Preferred runtime broker ID or name\n      --config string           Path to inline agent config file (YAML/JSON), or '-' for stdin\n      --disable-telemetry       Explicitly disable telemetry for this agent\n      --enable-telemetry        Explicitly enable telemetry for this agent\n      --harness string          Named harness configuration to use (alias for --harness-config)\n      --harness-auth string     Override auth method for the harness (api-key, oauth-token, auth-file, vertex-ai)\n      --harness-config string   Named harness configuration to use\n  -h, --help                    help for start\n  -i, --image string            Container image to use (overrides template)\n      --label stringArray       Label in key=value format (repeatable)\n      --model string            Model to use: alias (small, medium, large, extra-large/xl) or explicit model ID\n      --no-auth                 Disable authentication propagation\n      --no-notify               Do not subscribe to notifications for the spawned agent\n      --no-upload               Fail if template requires upload (never prompt)\n      --template-scope string   Scope for uploaded template (global, project, user) (default \"project\")\n      --thinking-level int      Thinking level (0-100) to inject into agent config (default -1)\n  -t, --type string             Template to use\n      --upload-template         Automatically upload local template to Hub if not found\n  -w, --workspace string        Host path or project-relative subdirectory to mount as /workspace\n\nGlobal Flags:\n      --cpuprofile string   Write cpu profile to file\n      --debug               Enable debug output (equivalent to SCION_DEBUG=1)\n      --format string       Output format (e.g., json)\n      --global              Use the global project (equivalent to --project global)\n      --hub string          Hub API endpoint URL (overrides SCION_HUB_ENDPOINT)\n      --memprofile string   Write memory profile to file\n      --no-hub              Disable Hub integration for this invocation (local-only mode)\n      --non-interactive     Non-interactive mode: implies --yes, errors on ambiguous prompts\n  -p, --profile string      Configuration profile to use\n  -g, --project string      Project identifier: path, slug (with Hub), or git URL (with Hub)\n      --stats Duration      Interval between printing stats, e.g. 500ms, 60s, 5m (0 to disable) (default 1m0s)\n  -y, --yes                 Skip confirmation prompt\n"
+    },
+    "status": "launch_failed"
+  }
+]

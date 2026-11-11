@@ -1,0 +1,26 @@
+[
+  {
+    "compatibility_tag": "scion-pi-fork:e9ba9e2",
+    "previous_image_id": "sha256:faf7c9f420bfccf5f582fe4e38b060f6319e99743db4e9ab2dc88e127cbcc734",
+    "rollback_tag": "local.scion/archive-pi-fork:e9ba9e2-before-runtime-repair",
+    "current_image": "local.scion/pi-autonomy:e9ba9e2-r2"
+  },
+  {
+    "compatibility_tag": "scion-pi-autonomy:e9ba9e2",
+    "previous_image_id": "sha256:79bde468d5e32447be7ba39666429f69214755bc1a859e109c4009c1f579ffa1",
+    "rollback_tag": "local.scion/archive-pi-autonomy:e9ba9e2-before-runtime-repair",
+    "current_image": "local.scion/pi-autonomy:e9ba9e2-r2"
+  },
+  {
+    "compatibility_tag": "localhost:5000/scion-pi-fork:e9ba9e2",
+    "previous_image_id": "",
+    "current_image": "local.scion/pi-autonomy:e9ba9e2-r2",
+    "reason": "Native cached agent config from original laboratory launch used this fully qualified local alias."
+  },
+  {
+    "compatibility_tag": "localhost:5000/scion-pi-autonomy:e9ba9e2",
+    "previous_image_id": "sha256:79bde468d5e32447be7ba39666429f69214755bc1a859e109c4009c1f579ffa1",
+    "current_image": "local.scion/pi-autonomy:e9ba9e2-r2",
+    "reason": "Native cached agent config from original laboratory launch used this fully qualified local alias."
+  }
+]

@@ -50,6 +50,32 @@ def options_only(args):
     return result
 
 
+def configured_model_options(agent_dir, args):
+    """Make Scion's resolved selection authoritative, including on resume."""
+    model_index = next((i for i, arg in enumerate(args) if arg == "--model"), None)
+    if model_index is not None:
+        if model_index + 1 == len(args):
+            raise ValueError("Missing Pi model")
+        if any(arg == "--provider" or arg.startswith("--provider=") for arg in args):
+            return args
+        # Scion 0.2.21 injects its raw model alias again on resume. Pi's
+        # --model is a fuzzy catalogue search, not Scion alias resolution.
+        if args[model_index + 1] != os.environ.get("SCION_MODEL"):
+            return args
+        args = args[:model_index] + args[model_index + 2:]
+    elif any(arg.startswith("--model=") for arg in args):
+        return args
+    if any(arg == "--provider" or arg.startswith("--provider=") for arg in args):
+        raise ValueError("Pi provider requires an explicit model")
+    settings = json.loads((agent_dir / "settings.json").read_text())
+    if not isinstance(settings, dict):
+        raise ValueError("Invalid provisioned Pi settings")
+    provider, model = settings.get("defaultProvider"), settings.get("defaultModel")
+    if not all(isinstance(value, str) and value.strip() for value in (provider, model)):
+        raise ValueError("Pi requires a provisioned provider and model")
+    return ["--provider", provider, "--model", model, *args]
+
+
 def main():
     args = sys.argv[1:]
     if any(arg.split("=", 1)[0] in ("--session", "--session-dir", "--no-session", "--fork") for arg in args):
@@ -69,6 +95,7 @@ def main():
         args = options_only(args)
         if os.environ.get("DESKOPS_AUTONOMOUS") == "1":
             args.append(RECOVERY_PROMPT)
+    args = configured_model_options(agent_dir, args)
     # Explicit loading avoids discovery in cheap --no-extensions review processes.
     if "--no-extensions" not in args and "-ne" not in args and BRIDGE.is_file():
         if str(BRIDGE) not in args:

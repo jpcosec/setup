@@ -1,0 +1,61 @@
+{
+  "alerts": [],
+  "declared": [
+    "tests",
+    "commit",
+    "atom",
+    "materialization"
+  ],
+  "findings": [],
+  "found": [
+    "tests",
+    "atom|materialization",
+    "commit"
+  ],
+  "gates": {
+    "atom_or_materialization_link": {
+      "evidence": [
+        "desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-session->pi/scion/launch.py",
+        "materialization:materialization:materialization-scion-autonomy-harness->pi/scion/harness-config.yaml",
+        "materialization:materialization:materialization-scion-runtime-layer->pi/scion/Dockerfile.runtime",
+        "materialization:materialization:materialization-scion-autonomy-operator-guide->pi/scion/README.md",
+        "materialization:materialization:materialization-scion-claude-credential-binding->pi/scion/sync-claude-secret.py",
+        "materialization:materialization:materialization-scion-autonomy-session-tests->tests/test_scion_pi_runtime.py",
+        "atom-doc:desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-autonomy-tests->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-bootstrap->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-events->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-harness->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-image->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-operator-guide->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-pi-guide->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-provider->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-session->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-autonomy-session-tests->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-claude-credential-binding->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md",
+        "materialization:materialization:materialization-scion-runtime-layer->desk/atoms/atom-scion-bootstrap-preserves-runtime-and-workflow-authority.md"
+      ],
+      "findings": [],
+      "ok": true
+    },
+    "commit": {
+      "evidence": [
+        "a54a9c6"
+      ],
+      "findings": [],
+      "ok": true
+    },
+    "tests": {
+      "evidence": [
+        "tests/test_scion_pi_runtime.py"
+      ],
+      "findings": [],
+      "ok": true
+    }
+  },
+  "implicit_code": false,
+  "ok": true,
+  "summary": "esta tarea declar\u00f3 tests, commit, atom|materialization; encontr\u00e9 tests, atom|materialization, commit",
+  "task_id": "task-scion-pi-resume-and-runtime-binding"
+}

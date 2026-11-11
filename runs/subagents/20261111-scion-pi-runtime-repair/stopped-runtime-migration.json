@@ -1,0 +1,32 @@
+[
+  {
+    "container": "scion-autonomy-lab--hc-1111-pi-autonomy-r2",
+    "image_id": "sha256:79bde468d5e32447be7ba39666429f69214755bc1a859e109c4009c1f579ffa1",
+    "was_running": false,
+    "files": [
+      {
+        "path": "/usr/local/lib/scion-pi/launch.py",
+        "source_sha256": "813ac278afec11bba266a0ad528929b40275651fd63aaa8b47dd92919c7fd2c7"
+      },
+      {
+        "path": "/usr/local/lib/scion-pi/scion-events.ts",
+        "source_sha256": "6a63b548847bd7b67c7a855967b98195c8ad01b9e0dba2231fb80700ae1b3c11"
+      }
+    ]
+  },
+  {
+    "container": "sldb-1--deskops-coordinator",
+    "image_id": "sha256:faf7c9f420bfccf5f582fe4e38b060f6319e99743db4e9ab2dc88e127cbcc734",
+    "was_running": false,
+    "files": [
+      {
+        "path": "/usr/local/lib/scion-pi/launch.py",
+        "source_sha256": "813ac278afec11bba266a0ad528929b40275651fd63aaa8b47dd92919c7fd2c7"
+      },
+      {
+        "path": "/usr/local/lib/scion-pi/scion-events.ts",
+        "source_sha256": "6a63b548847bd7b67c7a855967b98195c8ad01b9e0dba2231fb80700ae1b3c11"
+      }
+    ]
+  }
+]

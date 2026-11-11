@@ -1,0 +1,88 @@
+[
+  {
+    "args": [
+      "--no-hub",
+      "--global",
+      "harness-config",
+      "install",
+      "--name",
+      "pi",
+      "file:///home/robocop/scion-build/pi-runtime-e9ba9e2-r2/harness",
+      "--force"
+    ],
+    "exit": 0,
+    "stdout": "Harness-config 'pi' installed to /home/robocop/.scion/harness-configs/pi\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--hub",
+      "http://127.0.0.1:8080",
+      "--global",
+      "harness-config",
+      "sync",
+      "pi"
+    ],
+    "exit": 0,
+    "stdout": "Scanning harness-config files in /home/robocop/.scion/harness-configs/pi...\nFound 9 files\nChecking for changes in harness-config 'pi'...\nFound 3 changed file(s), updating...\nRequesting upload URLs for 3 file(s)...\nUploading 3 file(s)...\n  Uploaded: README.md\n  Uploaded: config.yaml\n  Uploaded: launch.py\nFinalizing harness-config...\nHarness-config 'pi' synced successfully!\n  ID: 65712c83-07bf-45c9-baa6-412f050e0523\n  Status: active\n  Content Hash: sha256:959c2ed87cedd...\n",
+    "stderr": "\n\u001b[1m\u001b[93m WARNING: Development authentication enabled - not for production use \u001b[0m\n\nUsing hub: http://127.0.0.1:8080\n"
+  },
+  {
+    "args": [
+      "--no-hub",
+      "--global",
+      "harness-config",
+      "install",
+      "--name",
+      "pi-autonomy",
+      "file:///home/robocop/scion-build/pi-runtime-e9ba9e2-r2/harness",
+      "--force"
+    ],
+    "exit": 0,
+    "stdout": "Harness-config 'pi-autonomy' installed to /home/robocop/.scion/harness-configs/pi-autonomy\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--hub",
+      "http://127.0.0.1:8080",
+      "--global",
+      "harness-config",
+      "sync",
+      "pi-autonomy"
+    ],
+    "exit": 0,
+    "stdout": "Scanning harness-config files in /home/robocop/.scion/harness-configs/pi-autonomy...\nFound 9 files\nChecking for changes in harness-config 'pi-autonomy'...\nFound 4 changed file(s), updating...\nRequesting upload URLs for 4 file(s)...\nUploading 4 file(s)...\n  Uploaded: Dockerfile\n  Uploaded: README.md\n  Uploaded: config.yaml\n  Uploaded: launch.py\nFinalizing harness-config...\nHarness-config 'pi-autonomy' synced successfully!\n  ID: f63cf93b-e19b-4be2-a788-06edb08f1fed\n  Status: active\n  Content Hash: sha256:959c2ed87cedd...\n",
+    "stderr": "\n\u001b[1m\u001b[93m WARNING: Development authentication enabled - not for production use \u001b[0m\n\nUsing hub: http://127.0.0.1:8080\n"
+  },
+  {
+    "args": [
+      "--no-hub",
+      "--project",
+      "/home/robocop/.scion/project-configs/scion-autonomy-lab__d7d9d3cd",
+      "harness-config",
+      "install",
+      "--name",
+      "pi",
+      "file:///home/robocop/scion-build/pi-runtime-e9ba9e2-r2/harness",
+      "--force"
+    ],
+    "exit": 0,
+    "stdout": "Harness-config 'pi' installed to /home/robocop/.scion/project-configs/scion-autonomy-lab__d7d9d3cd/.scion/harness-configs/pi\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--hub",
+      "http://127.0.0.1:8080",
+      "--project",
+      "d7d9d3cd-60a1-46be-9a63-b56722521061",
+      "harness-config",
+      "sync",
+      "pi"
+    ],
+    "exit": 0,
+    "stdout": "Scanning harness-config files in /home/robocop/.scion/harness-configs/pi...\nFound 9 files\nChecking for changes in harness-config 'pi'...\nHarness-config 'pi' is already up to date.\n  ID: 65712c83-07bf-45c9-baa6-412f050e0523\n  Content Hash: sha256:959c2ed87cedd...\n",
+    "stderr": "\n\u001b[1m\u001b[93m WARNING: Development authentication enabled - not for production use \u001b[0m\n\nUsing hub: http://127.0.0.1:8080\n"
+  }
+]

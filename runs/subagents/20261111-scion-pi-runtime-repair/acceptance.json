@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "image_id": "sha256:c90ad3aa86afdf25ef19d4aa363e9743e15aa97a2fcc8a08c9f8e36d1becedfe",
+  "pi_work_and_resume": true,
+  "pi_autonomy_work_and_resume": true,
+  "legacy_session_migration": true,
+  "claude_without_auth_override": true,
+  "full_pytest": "52 passed in 6.28s",
+  "production_tasks_dispatched": false,
+  "containers": [
+    {
+      "container": "scion-autonomy-lab--hc-1111-pi-r5",
+      "image_id": "sha256:c90ad3aa86afdf25ef19d4aa363e9743e15aa97a2fcc8a08c9f8e36d1becedfe",
+      "image_ref": "local.scion/pi-autonomy:e9ba9e2-r2",
+      "running": false
+    },
+    {
+      "container": "scion-autonomy-lab--hc-1111-pi-autonomy-r5",
+      "image_id": "sha256:c90ad3aa86afdf25ef19d4aa363e9743e15aa97a2fcc8a08c9f8e36d1becedfe",
+      "image_ref": "local.scion/pi-autonomy:e9ba9e2-r2",
+      "running": false
+    },
+    {
+      "container": "scion-autonomy-lab--hc-1111-pi-autonomy-r2",
+      "image_id": "sha256:c90ad3aa86afdf25ef19d4aa363e9743e15aa97a2fcc8a08c9f8e36d1becedfe",
+      "image_ref": "localhost:5000/scion-pi-autonomy:e9ba9e2",
+      "running": false
+    },
+    {
+      "container": "sldb-1--deskops-coordinator",
+      "image_id": "sha256:faf7c9f420bfccf5f582fe4e38b060f6319e99743db4e9ab2dc88e127cbcc734",
+      "image_ref": "scion-pi-fork:e9ba9e2",
+      "running": false
+    }
+  ],
+  "model": "deepseek/deepseek-flash",
+  "launcher_sha256": "813ac278afec11bba266a0ad528929b40275651fd63aaa8b47dd92919c7fd2c7"
+}

@@ -1,0 +1,86 @@
+from solution import normalize_tags
+ class TestTags(unittest.TestCase):
+  def test_clean(self): self.assertEqual(normalize_tags(["  Foo ","bar","FOO","
+ "," Bar ","Baz"]),["foo","bar","baz"])
+  def test_empty(self): self.assertEqual(normalize_tags([]),[])
+  def test_unicode(self): self.assertEqual(normalize_tags([" ÁRBOL
+ ","árbol","Ñ"]),["árbol","ñ"])
+ if __name__ == "__main__": unittest.main()
+
+
+
+ $ ls -la /workspace/.tmp/harness-validation-20261111/pi-autonomy-r2
+
+ ... (1 earlier lines, ctrl+o to expand)
+ drwxr-xr-x 2 scion scion 4096 Nov 11 13:09 .
+ drwxr-xr-x 8 scion scion 4096 Nov 11 13:09 ..
+ -rw-r--r-- 1 scion scion  245 Nov 11 13:09 agent-config.json
+ -rw-r--r-- 1 scion scion   58 Nov 11 13:09 solution.py
+ -r--r--r-- 1 scion scion  413 Nov 11 13:09 test_solution.py
+
+
+ Read solution.py.
+
+
+ read /workspace/.tmp/harness-validation-20261111/pi-autonomy-r2/solution.py
+
+ def normalize_tags(values):
+     raise NotImplementedError
+
+
+ Implement.
+
+
+ edit /workspace/.tmp/harness-validation-20261111/pi-autonomy-r2/solution.py
+
+   1 def normalize_tags(values):
+ - 2     raise NotImplementedError
+ + 2     seen = set()
+ + 3     result = []
+ + 4     for value in values:
+ + 5         normalized = value.strip().lower()
+ + 6         if normalized and normalized not in seen:
+ + 7             seen.add(normalized)
+ + 8             result.append(normalized)
+ + 9     return result
+
+
+
+ $ cd /workspace/.tmp/harness-validation-20261111/pi-autonomy-r2 && python3 -m
+ unittest -v
+
+ ... (3 earlier lines, ctrl+o to expand)
+
+ ----------------------------------------------------------------------
+ Ran 3 tests in 0.000s
+
+ OK
+
+
+ Tests pass. Now call sciontool status task_completed. Need tool availability;
+ use bash.
+
+
+ $ sciontool status task_completed
+
+ (no output)
+
+
+ Implemented normalize_tags in solution.py with whitespace stripping, lowercase
+ normalization, empty/duplicate removal, and first-occurrence order
+ preservation. All 3 tests pass, and sciontool status task_completed was
+ called.
+
+ Error: No API key found for openrouter.
+
+ Use /login or set an API key environment variable. See
+ /opt/pi-mono/packages/coding-agent/docs/providers.md
+
+────────────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────────────
+/workspace
+↑1.5k ↓553 R11k 7.9%/32k (auto)                 mistralai/voxtral-small-24b-2507
+[1m[93m WARNING: Development authentication enabled - not for production use [0m
+
+Using hub: http://127.0.0.1:8080

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-11T14:01:16Z'
+  authority: generated
+  via: save_document_payload
 # board-xxx
 id: board-001
 # Affected workspace or domain
@@ -7,7 +12,6 @@ scope: desk
 tasks:
 - desk/tasks/task-centralizar-configuraciones-personales-en-setup.md
 - desk/tasks/task-limpieza-de-worktrees-sobrantes-y-paso-de-limpieza-en-el-cierre.md
-- desk/tasks/task-scion-pi-resume-and-runtime-binding.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pills.md
@@ -41,4 +45,3 @@ _Generated from the task references above._
 
 - Centralizar configuraciones personales en setup [draft] - Crear un repositorio setup versionable que contenga configuraciones públicas, plantillas de secretos y un instalador seguro para reconstruir la configuración local.
 - Limpieza de worktrees sobrantes y paso de limpieza en el cierre [draft] - Borrar los worktrees cuyo trabajo ya está a salvo y dejar el borrado como paso explícito del cierre de cada tarea, para que no vuelvan a acumularse.
-- Scion Pi resume and runtime binding [draft] - Fix fresh and resumed Pi work with the configured DeepSeek model and normal local image binding; reuse current Claude auth through native Scion secrets.

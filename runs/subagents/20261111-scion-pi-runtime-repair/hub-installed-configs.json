@@ -1,0 +1,32 @@
+[
+  {
+    "id": "443c5fe9-1258-430d-a56f-f884c9f1c2aa",
+    "name": "pi",
+    "scope": "project",
+    "scopeId": "d7d9d3cd-60a1-46be-9a63-b56722521061",
+    "config": {
+      "image": "local.scion/pi-autonomy:e9ba9e2-r2"
+    },
+    "contentHash": "sha256:959c2ed87ceddcc4eb7065cb6f5e1b040b3f6e99bac6220cc28984d023872403"
+  },
+  {
+    "id": "65712c83-07bf-45c9-baa6-412f050e0523",
+    "name": "pi",
+    "scope": "global",
+    "scopeId": null,
+    "config": {
+      "image": "local.scion/pi-autonomy:e9ba9e2-r2"
+    },
+    "contentHash": "sha256:959c2ed87ceddcc4eb7065cb6f5e1b040b3f6e99bac6220cc28984d023872403"
+  },
+  {
+    "id": "f63cf93b-e19b-4be2-a788-06edb08f1fed",
+    "name": "pi-autonomy",
+    "scope": "global",
+    "scopeId": null,
+    "config": {
+      "image": "local.scion/pi-autonomy:e9ba9e2-r2"
+    },
+    "contentHash": "sha256:959c2ed87ceddcc4eb7065cb6f5e1b040b3f6e99bac6220cc28984d023872403"
+  }
+]

@@ -15,7 +15,7 @@
 # Pi built from jpcosec/pi-mono e9ba9e2ebce1b49dca85ab20007038c06e486ea5, modelled on
 # the opencode bundle. DeepSeek Flash is the default model.
 harness: pi
-image: scion-pi-fork:e9ba9e2
+image: local.scion/pi-autonomy:e9ba9e2-r2
 user: scion
 provisioner:
   type: container-script
@@ -36,8 +36,9 @@ instructions_file: AGENTS.md
 system_prompt_file: AGENTS.md
 system_prompt_mode: prepend_to_instructions
 # provision.py resolves SCION_MODEL through these aliases and writes the result
-# to ~/.pi/agent/settings.json (defaultProvider/defaultModel). The model is NOT
-# pinned on the command line: a --model flag there would override the alias.
+# to ~/.pi/agent/settings.json (defaultProvider/defaultModel). launch.py translates
+# Scion's raw CLI alias to that pair; Pi must never fuzzy-match a Scion alias
+# against its catalogue.
 model_aliases:
   small: deepseek-flash
   medium: deepseek-flash

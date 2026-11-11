@@ -1,0 +1,4 @@
+# Apply runtime fixes without updating Pi, Scion, or installed dependencies.
+ARG BASE_IMAGE=scion-pi-autonomy:e9ba9e2
+FROM ${BASE_IMAGE}
+COPY launch.py scion-events.ts /usr/local/lib/scion-pi/
