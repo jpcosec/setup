@@ -31,8 +31,11 @@ Managed outside this repo but expected on PATH for daily use:
 |---|---|---|
 | nvim | latest | `~/.local/nvim/` tarball (not snap) |
 | lazygit | latest | `~/.local/bin/lazygit` (override with `LAZYGIT_VERSION`) |
-| fd | 10.4.2 | `~/.pi/agent/bin/fd` |
-| rg | 14.1.0 | `/usr/bin/rg` (system) |
+| fd | 10.4.2 | `~/.pi/agent/bin/fd` (symlink in `~/.local/bin`) |
+| rg | 14.1.0 | `~/.local/bin/rg` |
+| go | 1.27.3 | `~/.local/go/` (go, gofmt symlinked in `~/.local/bin`) |
+| duckdb | 2.0.0 | `~/.local/bin/duckdb` (Yazi CSV/Parquet preview) |
+| basedpyright | latest | `uv tool` (Mason needs python3-venv) |
 
 ### Neovim Mason LSPs
 
