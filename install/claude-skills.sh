@@ -13,3 +13,12 @@ for s in use-deskops deskops-task-lifecycle deskops-health-and-drift deskops-inb
   ln -sfn "$SRC/$s" "$DST/$s"
   printf 'skill %s -> %s\n' "$s" "$SRC/$s"
 done
+
+# deskops-workflow vive versionado en el repo de deskops (.claude/skills, desde el 13-11); se enlaza desde ahí.
+DESKOPS_REPO="${DESKOPS_REPO:-/mnt/ssd/proyectos/SLDB_1/deskops}"
+if [ -f "$DESKOPS_REPO/.claude/skills/deskops-workflow/SKILL.md" ]; then
+  ln -sfn "$DESKOPS_REPO/.claude/skills/deskops-workflow" "$DST/deskops-workflow"
+  printf 'skill deskops-workflow -> %s\n' "$DESKOPS_REPO/.claude/skills/deskops-workflow"
+else
+  printf 'falta %s/.claude/skills/deskops-workflow\n' "$DESKOPS_REPO" >&2
+fi
