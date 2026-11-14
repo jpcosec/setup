@@ -44,14 +44,14 @@ cp ~/setup/pi/scion/Dockerfile ~/setup/pi/scion/launch.py ~/setup/pi/scion/scion
 docker build -t scion-pi-fork:e9ba9e2 "$ctx"
 ```
 
-El bundle original está en la rama local `wt/pi-harness` del checkout
-`/mnt/ssd/proyectos/SLDB_1/scion-wt-pi-harness`, commit `7163525f9`.
+El bundle original es el commit `7163525f9`, integrado en main del checkout
+`/mnt/ssd/proyectos/SLDB_1/scion` (merge `4f3108cd8`, 14-11; la rama `wt/pi-harness` ya no existe).
 Para preparar una instalación del harness compatible con Scion 0.2.21:
 
 ```bash
 bundle="$HOME/scion-build/pi-fork-e9ba9e2/harness"
 mkdir -p "$bundle"
-git -C /mnt/ssd/proyectos/SLDB_1/scion-wt-pi-harness archive 7163525f9 harnesses/pi | tar -x --strip-components=2 -C "$bundle"
+git -C /mnt/ssd/proyectos/SLDB_1/scion archive 7163525f9 harnesses/pi | tar -x --strip-components=2 -C "$bundle"
 cp ~/setup/pi/scion/harness-config.yaml "$bundle/config.yaml"
 cp ~/setup/pi/scion/provision.py "$bundle/provision.py"
 printf 'FROM scion-pi-fork:e9ba9e2\nCMD ["pi"]\n' > "$bundle/Dockerfile"
