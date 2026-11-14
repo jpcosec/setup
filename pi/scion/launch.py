@@ -2,8 +2,10 @@
 """Keep one Pi conversation per Scion agent, including Docker stop/resume."""
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 import sys
+import uuid
 
 
 BRIDGE = Path("/usr/local/lib/scion-pi/scion-events.ts")
@@ -76,6 +78,31 @@ def configured_model_options(agent_dir, args):
     return ["--provider", provider, "--model", model, *args]
 
 
+FORK_DIR = Path("/workspace/.scion/fork-from")
+
+
+def fork_base(session, cwd, base_dir=FORK_DIR, agent=None):
+    """On first start, fork ``<base_dir>/<agent>.jsonl`` into ``session`` (DSP-1).
+
+    Same shape as Pi's ``SessionManager.forkFrom``: a new header (new id, this cwd, ``parentSession``) and every
+    non-header entry copied. Executors forked from one base share its prefix, which the provider serves from cache.
+    Returns True when a fork was written."""
+    agent = agent or os.environ.get("SCION_AGENT_NAME", "")
+    base = base_dir / f"{agent}.jsonl"
+    if session.exists() or not agent or not base.is_file():
+        return False
+    entries = [json.loads(line) for line in base.read_text().splitlines() if line.strip()]
+    source = next((e for e in entries if isinstance(e, dict) and e.get("type") == "session"), None)
+    if source is None:
+        raise ValueError("Fork base has no session header")
+    header = {"type": "session", "version": source.get("version", 3), "id": str(uuid.uuid4()),
+              "timestamp": datetime.now(timezone.utc).isoformat(), "cwd": str(cwd), "parentSession": str(base)}
+    body = [json.dumps(e) for e in entries if e is not source]
+    session.write_text("\n".join([json.dumps(header), *body]) + "\n")
+    session.chmod(0o600)
+    return True
+
+
 def main():
     args = sys.argv[1:]
     if any(arg.split("=", 1)[0] in ("--session", "--session-dir", "--no-session", "--fork") for arg in args):
@@ -83,6 +110,7 @@ def main():
     agent_dir = Path(os.environ.get("PI_CODING_AGENT_DIR", "~/.pi/agent")).expanduser()
     session = agent_dir / "scion" / "session.jsonl"
     session.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+    fork_base(session, Path.cwd())
     if session.exists():
         with session.open() as stream:
             header = json.loads(stream.readline())

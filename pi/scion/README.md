@@ -317,3 +317,11 @@ emite un aviso fijo sin datos del proceso. `--no-extensions` y `-ne` excluyen el
 puente también en procesos baratos de revisión.
 
 Las pruebas de `tests/test_scion_autonomy.py` verifican los contratos con repositorios temporales y comandos simulados. La integración real quedó registrada en `runs/subagents/20261110-autonomy-bootstrap/acceptance-v2.json`: dos tareas cerradas, dos fases, cero mensajes de seguimiento, recuperación de la coordinadora y tester independiente nuevo después de un fallo real. Las seis sesiones Pi son distintas y no hubo hijos duplicados. La validación final independiente pasó con los tests originales intactos. El probe de lifecycle y renovación real del token tiene evidencia separada en el mismo directorio; no se afirma una ejecución de diez horas.
+
+## Sesión base compartida (fork, DSP-1)
+
+Si al primer arranque de un agente existe `/workspace/.scion/fork-from/<SCION_AGENT_NAME>.jsonl`, `launch.py` la
+bifurca a la sesión del agente igual que `pi --fork` (`SessionManager.forkFrom`): encabezado nuevo con id propio, el cwd
+del agente y `parentSession`, y el resto de las entradas copiadas. Varios ejecutores de una misma fase pueden partir de
+una sesión base que ya leyó el contexto común; ese prefijo se cobra como caché. El coordinador copia (no enlaza: el
+contenedor solo ve `/workspace`) la sesión base a ese nombre antes de `scion start`. Sin archivo, nada cambia.
