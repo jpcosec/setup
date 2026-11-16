@@ -20,3 +20,4 @@ __pycache__/
 *.bak-*
 .herdr-coordination.md
 secrets.env
+.sldb_cache/
