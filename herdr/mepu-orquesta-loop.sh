@@ -10,13 +10,13 @@ set -uo pipefail
 
 PANE="${1:?falta PANE_ID, ej: w1F:p1}"
 MINUTOS="${2:-30}"
-HERDR="${HERDR_BIN_PATH:-/home/jp/.local/bin/herdr}"
+HERDR="${HERDR_BIN_PATH:-$(command -v herdr || echo "$HOME/.local/bin/herdr")}"
 PIDFILE=/tmp/mepu-orquesta-loop.pid
 
 echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
 
-MSG='Pasada de orquestacion MEPU: corre `bash /home/jp/setup/herdr/coordination.sh agents`, revisa cada worker despachado, cierra con `close <name>` los que terminaron, reporta en una linea por worker (tarea / estado / que falta) y lanza la siguiente ola si hay capacidad. Recuerda: la cadena S1->S2->S3->S5->S6 es serial sobre la misma SQLite, no la paralelices.'
+MSG='Pasada de orquestacion MEPU: corre `bash ~/setup/herdr/coordination.sh agents`, revisa cada worker despachado, cierra con `close <name>` los que terminaron, reporta en una linea por worker (tarea / estado / que falta) y lanza la siguiente ola si hay capacidad. Recuerda: la cadena S1->S2->S3->S5->S6 es serial sobre la misma SQLite, no la paralelices.'
 
 while true; do
   sleep $(( MINUTOS * 60 ))

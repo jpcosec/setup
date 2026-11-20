@@ -11,7 +11,7 @@ never do work you can delegate; you define tasks, dispatch, verify, iterate.
 ## Discover workers
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh agents
+bash ~/setup/herdr/coordination.sh agents
 ```
 
 Returns `name status pane cwd`. Use the **pane id** (e.g. `w6:p6`) as TARGET
@@ -22,7 +22,7 @@ answer.
 ## Dispatch a task (send + wait for completion + capture output)
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh dispatch w6:p6 "Run the test suite in $(pwd) and report failures only"
+bash ~/setup/herdr/coordination.sh dispatch w6:p6 "Run the test suite in $(pwd) and report failures only"
 ```
 
 - Blocks until the worker is `idle` again (timeout: $HERDR_TIMEOUT_MS, default 10 min).
@@ -42,15 +42,15 @@ Rules:
 ## Fire-and-forget / inspection
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh say w6:p6 "message"   # no wait
-bash /home/jp/setup/herdr/coordination.sh wait w6:p6 idle       # block manually
-bash /home/jp/setup/herdr/coordination.sh read w6:p6            # pane output tail
+bash ~/setup/herdr/coordination.sh say w6:p6 "message"   # no wait
+bash ~/setup/herdr/coordination.sh wait w6:p6 idle       # block manually
+bash ~/setup/herdr/coordination.sh read w6:p6            # pane output tail
 ```
 
 ## Start a new worker
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh spawn pi /path/to/repo
+bash ~/setup/herdr/coordination.sh spawn pi /path/to/repo
 ```
 
 Starts the agent kind in that cwd, **in a separate `subagents` tab** — never in the
@@ -124,21 +124,21 @@ Two traps:
 ### Managing the workers tab
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh workers-tab     # print tab id
-bash /home/jp/setup/herdr/coordination.sh workers-focus   # look at the workers
-bash /home/jp/setup/herdr/coordination.sh workers-close   # close tab + all workers
+bash ~/setup/herdr/coordination.sh workers-tab     # print tab id
+bash ~/setup/herdr/coordination.sh workers-focus   # look at the workers
+bash ~/setup/herdr/coordination.sh workers-close   # close tab + all workers
 ```
 
 Finishing one worker. `close` accepts a name now, same as every other command:
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh ls               # my workers: pane status name cwd
-bash /home/jp/setup/herdr/coordination.sh ls --all         # every coordinator's workers
-bash /home/jp/setup/herdr/coordination.sh which pi2        # pane id a target resolves to
-bash /home/jp/setup/herdr/coordination.sh close pi2        # close ONE worker (name or pane id)
-bash /home/jp/setup/herdr/coordination.sh reap             # close my dead workers, forget stale panes
-bash /home/jp/setup/herdr/coordination.sh reap --finished  # also close my done/idle workers
-bash /home/jp/setup/herdr/coordination.sh help             # full command list
+bash ~/setup/herdr/coordination.sh ls               # my workers: pane status name cwd
+bash ~/setup/herdr/coordination.sh ls --all         # every coordinator's workers
+bash ~/setup/herdr/coordination.sh which pi2        # pane id a target resolves to
+bash ~/setup/herdr/coordination.sh close pi2        # close ONE worker (name or pane id)
+bash ~/setup/herdr/coordination.sh reap             # close my dead workers, forget stale panes
+bash ~/setup/herdr/coordination.sh reap --finished  # also close my done/idle workers
+bash ~/setup/herdr/coordination.sh help             # full command list
 ```
 
 `ls`, `reap` and `help` are aliases. When in doubt about how to close something:
@@ -151,8 +151,8 @@ You still reach any worker by pane id or agent name from your own tab:
 ## Start a worker forked from a pi session (inherited context)
 
 ```bash
-bash /home/jp/setup/herdr/coordination.sh spawn-fork pi <uuid> [/path/to/repo]
-bash /home/jp/setup/herdr/coordination.sh dispatch wN "<task>"
+bash ~/setup/herdr/coordination.sh spawn-fork pi <uuid> [/path/to/repo]
+bash ~/setup/herdr/coordination.sh dispatch wN "<task>"
 ```
 
 - `<uuid>`: full or partial pi session id (resolves local project dir first, then

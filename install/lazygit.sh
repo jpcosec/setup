@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-# Install lazygit from official tarball to ~/.local/bin
+# Install lazygit from official tarball to ~/.local/bin (Linux and macOS)
 set -euo pipefail
+
+case "$(uname -s)" in
+  Linux) OS="linux" ;;
+  Darwin) OS="darwin" ;;
+  *) printf 'unsupported OS: %s\n' "$(uname -s)" >&2; exit 1 ;;
+esac
 
 ARCH="${LAZYGIT_ARCH:-$(uname -m)}"
 case "$ARCH" in
@@ -11,8 +17,9 @@ esac
 
 VERSION="${LAZYGIT_VERSION:-}"
 if [[ -z "$VERSION" ]]; then
+  # sed instead of `grep -P`: BSD grep on macOS has no PCRE.
   VERSION=$(curl -sf "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" \
-    | grep -Po '"tag_name": "v\K[^"]*')
+    | sed -n 's/.*"tag_name": *"v\([^"]*\)".*/\1/p' | head -1)
 fi
 if [[ -z "$VERSION" ]]; then
   printf 'could not determine latest lazygit version\n' >&2
@@ -23,7 +30,11 @@ tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 cd "$tmp"
 
-curl -fLo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${VERSION}/lazygit_${VERSION}_Linux_${ARCH_DEB}.tar.gz"
+base="https://github.com/jesseduffield/lazygit/releases/download/v${VERSION}"
+# Release assets switched from "Linux"/"Darwin" to lowercase OS names; try both.
+OS_TITLE="$(printf '%s' "${OS:0:1}" | tr '[:lower:]' '[:upper:]')${OS:1}"
+curl -fLo lazygit.tar.gz "${base}/lazygit_${VERSION}_${OS}_${ARCH_DEB}.tar.gz" \
+  || curl -fLo lazygit.tar.gz "${base}/lazygit_${VERSION}_${OS_TITLE}_${ARCH_DEB}.tar.gz"
 tar xf lazygit.tar.gz lazygit
 mkdir -p ~/.local/bin
 install lazygit ~/.local/bin/

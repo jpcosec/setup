@@ -18,7 +18,7 @@ Este directorio es la **fuente versionada** de las skills de Pi del ecosistema h
 
 ## Re-apuntar settings.json
 
-`/home/jp/.pi/agent/settings.json` debe apuntar **solo** a esta ruta en su array `"skills"`:
+`~/.pi/agent/settings.json` debe apuntar **solo** a esta ruta en su array `"skills"`:
 
 Antes:
 
@@ -28,7 +28,7 @@ Antes:
   "/home/jp/proyectos/hum-ecosystem/tools/deskops/.pi/skills",
   "/home/jp/proyectos/hum-ecosystem/tools/kgdb/.pi/skills",
   "/home/jp/proyectos/hum-ecosystem/tools/spec2viz/.pi/skills",
-  "/home/jp/setup/.pi/skills"
+  "~/setup/.pi/skills"
 ]
 ```
 
@@ -36,13 +36,13 @@ Después (ver `settings-skills.example.json`):
 
 ```json
 "skills": [
-  "/home/jp/setup/.pi/skills"
+  "~/setup/.pi/skills"
 ]
 ```
 
 Pasos:
 
-1. Editar `/home/jp/.pi/agent/settings.json` y reemplazar el array `"skills"` por el del ejemplo.
+1. Editar `~/.pi/agent/settings.json` y reemplazar el array `"skills"` por el del ejemplo.
 2. Reiniciar la sesión de Pi para que recargue las skills desde esta ruta.
 
 Las copias en `tools/<repo>/.pi/skills/` se conservan como orígenes, pero ya no deben usarse como fuente de carga.

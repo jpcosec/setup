@@ -4,15 +4,30 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 import sys
 
-DEFAULT_OPSYS_ROOT = Path("/home/jp/proyectos/hum-ecosystem/tools/deskops")
+OPSYS_ROOT_CANDIDATES = (
+    Path.home() / "proyectos/hum-ecosystem/tools/deskops",
+    Path.home() / "repos/opsys",
+)
+
+
+def default_opsys_root() -> Path:
+    """Pick the Opsys checkout: $OPSYS_ROOT, else the first candidate that exists."""
+    override = os.environ.get("OPSYS_ROOT")
+    if override:
+        return Path(override)
+    for candidate in OPSYS_ROOT_CANDIDATES:
+        if (candidate / "pyproject.toml").exists():
+            return candidate
+    return OPSYS_ROOT_CANDIDATES[0]
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Create the Opsys DeskOps Herdr workspace.")
-    parser.add_argument("--opsys-root", type=Path, default=DEFAULT_OPSYS_ROOT)
+    parser.add_argument("--opsys-root", type=Path, default=default_opsys_root())
     parser.add_argument("--agents", action="store_true", help="Start executor and tester Pi agents.")
     args = parser.parse_args()
     root = args.opsys_root.expanduser().resolve()
