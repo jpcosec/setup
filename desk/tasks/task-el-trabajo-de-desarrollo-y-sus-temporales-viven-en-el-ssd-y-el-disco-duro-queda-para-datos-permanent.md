@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T01:24:00Z'
+  at: '2026-11-25T06:18:51Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-trabajo-de-desarrollo-y-sus-temporales-viven-en-el-ssd-y-el-disco-duro-queda-para-datos-permanent
 status: draft
 summary: ''
@@ -44,7 +44,7 @@ Entra: mover lo listado, dejar enlaces, variables de entorno y limpieza de tempo
 
 _Outline the expected implementation route or affected surface._
 
-1) JP responde las tres decisiones. 2) Cada movimiento con rsync, verificacion y enlace, sin sesiones ni contenedores usando el origen. 3) Variables en los dotfiles de este repo. 4) Volver a correr la revision de procesos y repos activos en el disco duro.
+1) JP responde las tres decisiones. 2) Cada movimiento con rsync, verificacion y enlace, sin sesiones ni contenedores usando el origen. 3) Variables en los dotfiles de este repo. 4) Volver a correr la revision de procesos y repos activos en el disco duro. Avance 2026-11-25: decision (1) hecha sin sudo: los 10 clones de /srv/repos estan en /mnt/ssd/repos y los worktrees de /srv/wt en /mnt/ssd/wt; cada /srv/repos/<repo> y /srv/wt/<repo>/<nombre> es un enlace (findmnt da /dev/sda1). El arbol viejo /mnt/ssd/AntonIA/repos quedo solo con el clon de ftcourier (sesion ftcourier-55) y legacy/mepu (un pase a QA corria desde ahi). Faltan (2), (3), el swapfile y el data-root de Docker (snap, en /var/snap/docker, disco duro).
 
 ## Validation
 
