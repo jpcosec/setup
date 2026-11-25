@@ -1,7 +1,7 @@
 [mgr]
 prepend_keymap = [
-  { on = "q", run = "quit", desc = "Quit and cd to Yazi cwd" },
-  { on = "Q", run = "quit --no-cwd-file", desc = "Quit without changing cwd" },
+  { on = "q", run = "plugin quit-hovered", desc = "Quit and cd to hovered dir (or cwd)" },
+  { on = "Q", run = "quit --no-cwd-file", desc = "Quit and stay in the origin dir" },
   { on = [ "y", "p" ], run = "copy path", desc = "Copy file path" },
   { on = [ "y", "d" ], run = "copy dirname", desc = "Copy parent directory path" },
   { on = [ "y", "f" ], run = "copy filename", desc = "Copy filename" },
