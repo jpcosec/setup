@@ -1,6 +1,6 @@
 # Paseo como reemplazo de Scion
 
-Fecha: 2026-11-27. Estado: evaluado e instalado a prueba; no decidido.
+Fecha: 2026-11-27. Estado: **decidido por JP el 28-11 («cambiemos a paseo»)** e implementado; queda retirar scion.
 
 ## Qué es
 
@@ -38,4 +38,19 @@ configuración en `~/.paseo/config.json`.
 4. Aislamiento, si se exige: el daemon de Paseo en su contenedor (imagen oficial `ghcr.io/getpaseo/paseo`), un
    contenedor para todos los agentes y no uno por agente.
 
-Decisión pendiente de JP: ¿hace falta un contenedor por agente? Si no, Paseo es más simple que scion.
+## Hecho (28-11)
+
+- Dormir agentes, probado: con el daemon reiniciado el proceso de pi murió (`closed`) y `paseo send` lo retomó con
+  la conversación. Paseo libera un agente inactivo tras una hora (`agents.idleRuntimeCleanup`).
+- deskops: `dispatch.runtime: paseo` (jpcosec/deskops#13, merge `cbcf3b75e`); `~/herramientas/deskops` está en ese
+  commit. Prueba real con pi: ejecutor en su worktree → reap integra → tester PASA → reap deja paseo vacío.
+- Los desks de SLDB_1 (deskops, sldb, IR, graph_ui) pasaron a paseo: ejecutor `claude` en modo `bypass`,
+  tester `pi`.
+- El daemon corre como `systemctl --user` `paseo.service` (127.0.0.1:6767, sin relay).
+
+## Falta
+
+- Retirar scion: `runtime/scion.py`, plantillas `.scion/`, imagen de pi, hub, y los espacios `mepu-scion` y
+  `ftcourier-scion`. Esperar unos despachos reales con paseo antes.
+- La identidad que despierta un desk (`identity.command`) sigue con `scion message --wake`: pasa a
+  `paseo send --no-wait {agent} ...` cuando se use.
